@@ -1,0 +1,58 @@
+{% assign product_status = '' %}
+{% case product.status %}
+	{% when 'active' %}
+		{% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+	{% when 'sold-out' %}
+		{% assign product_status = 'Sold out' %}
+	{% when 'coming-soon' %}
+		{% assign product_status = 'Coming soon' %}
+{% endcase %}
+
+<div class="primary-image-container">
+  <img alt="Image of {{ product.name | escape }}" class="primary-image" src="{{ product.image | product_image_url | constrain: 1500 }}">
+</div>
+
+<h1 class="page-title product-name">{{ product.name }}</h1>
+<div>{{ product.default_price | money: theme.money_format }} {{ product_status }}</div>
+
+{% if product.status == 'active' %}
+  <form action="/cart" class="product-form" id="product-form" method="post">
+    {{ product | product_quantity_input, 1, 'product-quantity', 'product-quantity' }}
+
+    {% if product.has_default_option %}
+      {{ product.option | hidden_option_input }}
+      <button class="button add-to-cart-button" type="submit">Add to Cart</button>
+    {% else %}
+      {{ product.options_in_stock | options_select }}
+
+      <div class="product-option-selection">
+        <div>Select Option</div>
+        <ul>
+          {% for option in product.options_in_stock	 %}
+            <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
+              <span class="product-option">
+                <span class="option-name">{{ option.name }}</span>{% if option.price != product.default_price %} - <span class="option-price">{{ option.price | money: theme.money_format }}</span>{% endif %} {% if option.sold_out %}<span class="option-status">(Sold out)</span>{% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </form>
+{% endif %}
+
+<div class="product-description">
+	{% if product.description != blank %}
+		{{ product.description | paragraphs }}
+	{% endif %}
+</div>
+
+{% if product.images.size > 1 %}
+  <div class="secondary-product-images product-list">
+    {% for image in product.images offset: 1 %}
+      <div class="secondary-product-image" data-scroll>
+        <img class="product-list-image" src="{{ image | product_image_url | constrain: 1500 }}" alt="Image of {{ product.name | escape }}">
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

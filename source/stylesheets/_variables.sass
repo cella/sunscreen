@@ -1,0 +1,32 @@
+@import 'flexbox'
+
+$text-color: #{"{{ theme.text_color }}"}
+
+$primary-font: #{"{{ theme.primary_font }}"}
+
+@mixin all-transitions
+  +transition(.2s linear)
+
+@mixin transition($transition...)
+  -webkit-transition: #{$transition}
+  transition: #{$transition}
+
+@mixin transform($str...)
+  -webkit-transform: $str
+  transform: $str
+
+@mixin appearance($str...)
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+@mixin keyframes($animation...)
+  @-webkit-keyframes #{$animation}
+    @content
+
+  @keyframes #{$animation}
+    @content
+
+@mixin animation($str...)
+  -webkit-animation: $str
+  animation: $str

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.name }} | {{ store.name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+    {{ head_content }}
+  </head>
+  <body id="{{ page.permalink }}" class="{{ page.category }}">
+    <header class="header">
+      {% if theme.logo != blank %}
+        <a class="store-link" href="/" title="{{ store.name | escape }}">
+          <img alt="{{ store.name | escape }}" class="store-logo" src="{{ theme.images.logo.url | constrain: 500, 200 }}">
+        </a>
+      {% else %}
+        <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
+      {% endif %}
+      <ul>
+        <li><a href="/products" title="Products">Products</a></li>
+        {% for page in pages.all limit: theme.nav_items %}
+          <li>{{ page | link_to }}</li>
+        {% endfor %}
+        <li><a href="/contact" title="Contact">Contact</a></li>
+        <li><a href="/cart" title="View Cart">Cart / {{ cart.item_count | pluralize: "Item", "Items" }}</a></li>
+      </ul>
+    </header>
+    <div class="content">
+      {% if page.category == 'custom' %}
+        <h1 class="page-title">{{ page.name }}</h1>
+        <div class="page-content {{ page.category }}-content">
+          {{ page_content | paragraphs }}
+        </div>
+      {% else %}
+        {{ page_content }}
+      {% endif %}
+    </div>
+    <footer class="footer">
+      <div class="store-name">{{ store.name }}</div>
+      <div class="store-credit">{{ bigcartel_credit }}</div>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ 'api' | theme_js_url }}"></script>
+    <script src="{{ theme | theme_js_url }}"></script>
+  </body>
+</html>

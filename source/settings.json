@@ -1,0 +1,54 @@
+{
+  "name": "Sunscreen",
+  "version": "0.0.1",
+  "images": [
+    {
+      "variable": "logo",
+      "label": "Logo",
+      "description": "Adds your logo to the header"
+    }
+  ],
+  "image_sets": [
+    {
+      "variable": "welcome_image",
+      "label": "Welcome image",
+      "description": "This is a slideshow"
+    },
+    {
+      "variable": "lookbook_images",
+      "label": "Lookbook",
+      "description": "This is a lookbook"
+    }
+  ],
+  "fonts": [
+    {
+      "variable": "primary_font",
+      "label": "Primary Font",
+      "default": "Inconsolata"
+    }
+  ],
+  "colors": [
+    {
+      "variable": "text_color",
+      "label": "Text Color",
+      "default": "#222222"
+    }
+  ],
+  "options": [
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a search field"
+    },
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "type": "select",
+      "options": "1..100",
+      "default": 9,
+      "description": "The number of products shown per page"
+    }
+  ]
+}

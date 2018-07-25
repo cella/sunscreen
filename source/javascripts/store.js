@@ -1,0 +1,1 @@
+var inPreview = (/\/admin\/design/.test(top.location.pathname));
