@@ -9,35 +9,71 @@
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }}">
     <header class="header">
-      {% if theme.logo != blank %}
-        <a class="store-link" href="/" title="{{ store.name | escape }}">
-          <img alt="{{ store.name | escape }}" class="store-logo" src="{{ theme.images.logo.url | constrain: 500, 200 }}">
-        </a>
-      {% else %}
-        <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
-      {% endif %}
-      <ul>
-        <li><a href="/products" title="Products">Products</a></li>
-        {% for page in pages.all limit: theme.nav_items %}
-          <li>{{ page | link_to }}</li>
-        {% endfor %}
-        <li><a href="/contact" title="Contact">Contact</a></li>
-        <li><a href="/cart" title="View Cart">Cart / {{ cart.item_count | pluralize: "Item", "Items" }}</a></li>
-      </ul>
+      <div class="wrapper">
+        {% if theme.logo != blank %}
+          <a class="store-link" href="/" title="{{ store.name | escape }}">
+            <img alt="{{ store.name | escape }}" class="store-logo" src="{{ theme.images.logo.url | constrain: 500, 200 }}">
+          </a>
+        {% else %}
+          <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
+        {% endif %}
+
+
+          <ul class="header-nav">
+            <li>
+              <a href="/products" title="Products">Products</a>
+              {% if categories.active != blank or artists.active != blank %}
+                <ul class="category-dropdown">
+                  {% if categories.active != blank %}
+                    {% for category in categories.active %}
+                      <li>{{ category | link_to }}</li>
+                    {% endfor %}
+                  {% endif %}
+                  {% if artists.active != blank %}
+                    {% for artist in artists.active %}
+                      <li>{{ artist | link_to }}</li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              {% endif %}
+            </li>
+            {% if pages.all != blank %}
+              <li>
+                {% if pages.all != blank %}
+                  <span>Info</span>
+                  <ul class="category-dropdown">
+                    {% for page in pages.all %}
+                      <li>{{ page | link_to }}</li>
+                    {% endfor %}
+                    <li><a href="/contact" title="Contact">Contact</a></li>
+                  </ul>
+                {% endif %}
+              </li>
+            {% else %}
+              <li><a href="/contact" title="Contact">Contact</a></li>
+            {% endif %}
+
+            <li><a href="/cart" title="View Cart">Cart / {{ cart.item_count | pluralize: "Item", "Items" }}</a></li>
+          </ul>
+      </div>
     </header>
     <div class="content">
-      {% if page.category == 'custom' %}
-        <h1 class="page-title">{{ page.name }}</h1>
-        <div class="page-content {{ page.category }}-content">
-          {{ page_content | paragraphs }}
-        </div>
-      {% else %}
-        {{ page_content }}
-      {% endif %}
+      <div class="wrapper">
+        {% if page.category == 'custom' %}
+          <h1 class="page-title">{{ page.name }}</h1>
+          <div class="page-content {{ page.category }}-content">
+            {{ page_content | paragraphs }}
+          </div>
+        {% else %}
+          {{ page_content }}
+        {% endif %}
+      </div>
     </div>
     <footer class="footer">
-      <div class="store-name">{{ store.name }}</div>
-      <div class="store-credit">{{ bigcartel_credit }}</div>
+      <div class="wrapper">
+        <div class="store-name">{{ store.name }}</div>
+        <div class="store-credit">{{ bigcartel_credit }}</div>
+      </div>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
