@@ -3,25 +3,41 @@
 .product-list
   +flexbox
   +flex-wrap(wrap)
-  +flex(flex-grow)
-  +flex-direction(row)
-  +justify-content(space-around)
-  list-style: none
-  margin: 0 -5.5%
-  padding: 0
+  padding-left: 9%
+  padding-right: 9%
 
-  .product
-    +flexbox
-    +align-self(center)
-    padding: 0 3.5% calc(5% + 80px)
-    width: 33%
+.product-list-item
+  display: inline-block
+  padding-bottom: 80px
+  position: relative
+  vertical-align: middle
+  text-align: center
+  width: 33.33333%
 
-  .product-link
-    +all-transitions
-    display: block
-    width: 100%
+.product-list-item-container
+  cursor: default
+  display: inline-block
+  padding-bottom: 100%
+  position: relative
+  width: 100%
 
-    .product-image
-      display: block
-      margin-bottom: 30px
-      width: 100%
+.product-list-image-container
+  font-size: 0
+  margin: 0
+  width: 100%
+
+.product-list-image-container img
+  cursor: pointer
+  left: 50%
+  position: absolute
+  top: 50%
+  transform: translate3d(-50%,-50%,0)
+  max-width: 100%
+
+.image-tall
+  height: calc(100% - 20px)
+  width: auto
+
+.image-wide
+  height: auto
+  width: calc(100% - 20px)
