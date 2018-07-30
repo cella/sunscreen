@@ -1,1 +1,80 @@
 @import 'variables'
+
+.cart-items
+  border-top: 1px solid #000000
+  list-style: none
+  margin: 0
+  padding: 0
+
+.cart-item
+  +flexbox
+  +align-items(center)
+  border-bottom: 1px solid #000000
+  padding: 60px 0
+
+.cart-item-image
+  background-position: 50% 50%
+  background-size: cover
+  display: block
+  height: 127px
+  margin-right: 77px
+  width: 192px
+
+.cart-item-details
+  max-width: 300px
+  width: 100%
+
+.cart-item-details-option
+  font-size: 14px
+
+.cart-item-details-price
+  padding-left: 100px
+  text-align: left
+  width: 200px
+
+.cart-item-quantity-holder
+  margin-left: auto
+
+  input
+    +all-transitions
+    background: none
+    border: none
+    padding: 8px 0
+    text-align: center
+    width: 56px
+
+    &:active, &:focus
+      border-color: $text-color
+
+.cart-item-remove
+  text-align: right
+  width: 100px
+
+.cart-footer
+  +flexbox
+  +align-items(center)
+  +justify-content(flex-end)
+  margin-top: 75px
+
+.cart-subtotal
+  padding-left: 100px
+  width: 300px
+
+.checkout-btn
+  margin-left: 60px
+
+a.continue-shopping
+  +all-transitions
+  background-color: transparent
+  border-color: transparent
+  padding: 0
+  white-space: nowrap
+
+  &:hover, &:focus
+    border-color: transparent
+    color: $text-color
+
+a.start-shopping
+  display: inline-block
+  float: right
+  margin-right: 60px
