@@ -2,16 +2,15 @@
   {% if products != blank %}
     <div class="product-list">
       {% for product in products %}
-        <div class="product-list-item">
+        <a class="product-list-item" href="{{ product.url }}">
           <div class="product-list-item-container">
             <figure class="product-list-image-container">
-              <a href="{{ product.url }}">
-                <img class="{% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000 }}">
-              </a>
+              <img class="{% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000 }}">
             </figure>
           </div>
-          <a href="{{ product.url }}">{{ product.name }}</a>
-        </div>
+          <div class="product-list-item-name">{{ product.name }}</div>
+          <div class="product-list-item-price">{{ product.default_price | money: theme.money_format }}</div>
+        </a>
       {% endfor %}
     </div>
 
