@@ -36,9 +36,11 @@
       {% endfor %}
     </ul>
     <div class="cart-footer">
-      <a class="button continue-shopping" href="/products" title="Continue Shopping">Continue Shopping</a>
+      <div class="cart-subtotal">
+        <span class="cart-subtotal-label">Subtotal:</span>
+        <span class="cart-subtotal-amount">{{ cart.total | money: theme.money_format }}</span>
+      </div>
       <button type="submit" name="checkout" title="Checkout" class="button checkout-btn">Checkout</button>
-      <h3 class="cart-subtotal"><span class="cart-subtotal-label">Subtotal:</span> <span class="cart-subtotal-amount">{{ cart.total | money: theme.money_format }}</span></h3>
     </div>
   </form>
 {% endif %}
