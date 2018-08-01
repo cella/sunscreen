@@ -6,18 +6,18 @@
       "variable": "logo",
       "label": "Logo",
       "description": "Adds your logo to the header"
+    },
+    {
+      "variable": "welcome_image",
+      "label": "Welcome image",
+      "description": "Adds a welcome image to the Home page"
     }
   ],
   "image_sets": [
     {
-      "variable": "welcome_image",
-      "label": "Welcome image",
-      "description": "This is a slideshow"
-    },
-    {
       "variable": "lookbook_images",
-      "label": "Lookbook",
-      "description": "This is a lookbook"
+      "label": "Lookbook images",
+      "description": "Adds an image gallery to a specified page"
     }
   ],
   "fonts": [
@@ -29,8 +29,23 @@
   ],
   "colors": [
     {
+      "variable": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "accent_color",
+      "label": "Accent Color",
+      "default": "#ABABAB"
+    },
+    {
       "variable": "text_color",
       "label": "Text Color",
+      "default": "#222222"
+    },
+    {
+      "variable": "welcome_header_text_color",
+      "label": "Welcome Header Text Color",
       "default": "#222222"
     }
   ],
@@ -43,12 +58,102 @@
       "description": "Shows a search field"
     },
     {
+      "variable": "announcement_message_text",
+      "label": "Announcement text",
+      "type": "text",
+      "description": "Displays an announcement message on the top of every page"
+    },
+    {
+      "variable": "lookbook_page_name",
+      "label": "Lookbook Page Name",
+      "type": "text",
+      "description": "Displays your lookbook image gallery on this page"
+    },
+    {
+      "variable": "welcome_text",
+      "label": "Welcome text",
+      "type": "text",
+      "description": "Displays a welcome message on the Home page"
+    },
+    {
+      "variable": "secondary_image_on_hover",
+      "label": "Show secondary image on hover",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows the secondary product image when a visitor hovers"
+    },
+    {
+      "variable": "featured_items_type",
+      "label": "Featured items type",
+      "type": "select",
+      "options": ["Categories", "Products"],
+      "default": "Products",
+      "description": "Display featured products or categories on the Home page"
+    },
+    {
+      "variable": "featured_items",
+      "label": "Featured items",
+      "type": "select",
+      "options": "0..5",
+      "default": 3,
+      "description": "The number of items featured on the Home page"
+    },
+    {
+      "variable": "products_per_row",
+      "label": "Maximum products per row",
+      "type": "select",
+      "options": "1..4",
+      "default": 3,
+      "description": "The number of products shown per row"
+    },
+    {
       "variable": "products_per_page",
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
       "default": 9,
       "description": "The number of products shown per page"
+    },
+    {
+      "variable": "money_format",
+      "label": "Price display",
+      "type": "select",
+      "options": [
+        ["Currency sign", "sign"],
+        ["Currency code with sign", "sign_and_code"]
+      ],
+      "default": "sign",
+      "description": "Sets the display of prices in your shop"
+    },
+    {
+      "variable": "twitter_url",
+      "label": "Twitter URL",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_url",
+      "label": "Facebook URL",
+      "type": "text",
+      "description": "Ex: http://facebook.com/bigcartel"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: http://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "instagram_url",
+      "label": "Instagram URL",
+      "type": "text",
+      "description": "Ex: http://instagram.com/bigcartel"
+    },
+    {
+      "variable": "pinterest_url",
+      "label": "Pinterest URL",
+      "type": "text",
+      "description": "Ex: http://pinterest.com/bigcartel"
     }
   ]
 }
