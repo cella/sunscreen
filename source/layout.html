@@ -23,7 +23,7 @@
             <li>
               <a href="/products" title="Products">Products</a>
               {% if categories.active != blank or artists.active != blank %}
-                <ul class="category-dropdown">
+                <ul class="header-nav-dropdown">
                   {% if categories.active != blank %}
                     {% for category in categories.active %}
                       <li>{{ category | link_to }}</li>
@@ -41,7 +41,7 @@
               <li>
                 {% if pages.all != blank %}
                   <span>Info</span>
-                  <ul class="category-dropdown">
+                  <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
                     {% endfor %}
@@ -53,7 +53,34 @@
               <li><a href="/contact" title="Contact">Contact</a></li>
             {% endif %}
 
-            <li><a href="/cart" title="View Cart">Cart / {{ cart.item_count | pluralize: "Item", "Items" }}</a></li>
+            {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank or store.website != blank %}
+              <li>
+                <span>Follow</span>
+                <ul class="header-nav-dropdown">
+                  {% if theme.instagram_url != blank %}
+                    <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+                  {% endif %}
+
+                  {% if theme.twitter_url != blank %}
+                    <li><a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
+                  {% endif %}
+
+                  {% if theme.facebook_url != blank %}
+                    <li><a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
+                  {% endif %}
+
+                  {% if theme.pinterest_url != blank %}
+                    <li><a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
+                  {% endif %}
+
+                  {% if theme.tumblr_url != blank %}
+                    <li><a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+            {% endif %}
+
+            <li><a href="/cart" title="View Cart">Cart {% if cart.item_count > 0 %}<span class="cart-item-count">{{ cart.item_count }}</span>{% endif %}</a></li>
           </ul>
       </div>
     </header>
