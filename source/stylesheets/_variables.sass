@@ -1,10 +1,12 @@
 @import 'flexbox'
 
+
 $text-color: #{"{{ theme.text_color }}"}
+$background-color: #{"{{ theme.background_color }}"}
 $error-text-color: red
 
 
-$primary-font: #{"{{ theme.primary_font }}"}
+$primary-font: #{"{{ theme.primary_font | font_family }}"}
 
 @mixin all-transitions
   +transition(.2s linear)
@@ -16,6 +18,10 @@ $primary-font: #{"{{ theme.primary_font }}"}
 @mixin transform($str...)
   -webkit-transform: $str
   transform: $str
+
+@mixin transform-origin($str...)
+  -webkit-transform-origin: $str
+  transform-origin: $str
 
 @mixin appearance($str...)
   -webkit-appearance: none

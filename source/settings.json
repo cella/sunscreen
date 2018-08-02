@@ -24,7 +24,7 @@
     {
       "variable": "primary_font",
       "label": "Primary Font",
-      "default": "Inconsolata"
+      "default": "Questrial"
     }
   ],
   "colors": [

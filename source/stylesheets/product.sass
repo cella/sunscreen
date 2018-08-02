@@ -1,15 +1,15 @@
 @import 'variables'
 
+.product-page-content
+  margin: 0 auto
+  max-width: 754px
+  width: 100%
+
 .primary-product-image-container
   margin-bottom: 100px
 
 .primary-product-image
   display: block
-  width: 100%
-
-.product-form
-  margin-left: auto
-  max-width: 300px
   width: 100%
 
 .secondary-product-image-container
@@ -21,3 +21,108 @@
 
   &:last-child
     margin-bottom: 0
+
+.product-page-details
+  +flexbox
+  +flex-wrap(wrap)
+
+.product-page-titles
+  order: 1
+
+h1.product-name
+  text-align: left
+
+.product-page-price
+  font-size: 15px
+
+.product-description
+  font-size: 20px
+  line-height: 32px
+  max-width: calc(100% - 275px)
+  order: 3
+
+.product-form
+  margin-left: auto
+  max-width: 300px
+  order: 2
+  width: 100%
+
+.product-quantity, #option
+  display: none
+
+.product-option-selection
+  font-size: 15px
+  height: 60px
+  margin: 0 0 0 auto
+  position: relative
+  text-align: center
+  width: 100%
+
+.product-option-selection-title
+  +all-transitions
+  +flexbox
+  +justify-content(center)
+  +align-items(center)
+  background: $text-color
+  border: none
+  color: $background-color
+  cursor: pointer
+  height: 60px
+  padding: 0 50px
+  white-space: nowrap
+
+  &:hover
+    background: $text-color
+    color: $background-color
+
+    .down-arrow
+      fill: $background-color
+
+  .dropdown-title
+    display: none
+
+  .dropdown-select-title
+
+  .down-arrow
+    fill: $background-color
+    margin-left: 10px
+
+.product-option-list
+  +transform-origin(100% 0%)
+  +transform(scaleY(0.75))
+  +transition(all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
+  box-shadow: 0px 2px 4px  rgba(0, 0, 0, .5)
+  background: $background-color
+  list-style: none
+  margin: 0
+  opacity: 0
+  padding: 0
+  position: absolute
+  top: 100%
+  width: 100%
+  visibility: hidden
+  z-index: 2
+
+  li
+    border-bottom: 1px solid $text-color
+
+    span.product-option
+      +flexbox
+      +justify-content(center)
+      +align-items(center)
+      cursor: pointer
+      height: 67px
+      line-height: 20px
+      padding: 0 30px
+
+      &:hover, &:active
+        background: $text-color
+        color: $background-color
+
+  &:last-child
+    border-bottom: 0px
+
+  &.visible
+    opacity: 1
+    visibility: visible
+    +transform(scale(1) translateY(0))
