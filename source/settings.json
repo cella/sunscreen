@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "images": [
     {
       "variable": "logo",
@@ -36,7 +36,7 @@
     {
       "variable": "accent_color",
       "label": "Accent Color",
-      "default": "#ABABAB"
+      "default": "#F6F8FC"
     },
     {
       "variable": "text_color",
@@ -87,7 +87,7 @@
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
-      "default": "Products",
+      "default": "Categories",
       "description": "Display featured products or categories on the Home page"
     },
     {
