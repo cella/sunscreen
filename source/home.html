@@ -23,7 +23,7 @@
       {% for category in categories.active limit:theme.featured_items %}
         <div class="featured-category">
           <div class="featured-category-name">
-            {{ category.name }}
+            <div>{{ category.name }}</div>
             <a class="button" href="{{ category.url }}">Shop Now</a>
           </div>
           <div class="featured-category-products">
