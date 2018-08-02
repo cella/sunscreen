@@ -79,7 +79,7 @@
       "variable": "secondary_image_on_hover",
       "label": "Show secondary image on hover",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Shows the secondary product image when a visitor hovers"
     },
     {

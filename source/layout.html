@@ -41,7 +41,7 @@
             {% if pages.all != blank %}
               <li>
                 {% if pages.all != blank %}
-                  <span>Info</span>
+                  <a href="#" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>

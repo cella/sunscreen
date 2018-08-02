@@ -5,7 +5,10 @@
         <a class="product-list-item" href="{{ product.url }}">
           <div class="product-list-item-container">
             <figure class="product-list-image-container">
-              <img class="{% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000 }}">
+              <img class="product-list-image {% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000 }}">
+              {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
+              <img class="product-list-image {% if product.images[1].height > product.images[1].width %}image-tall{% else %}image-wide{% endif %} secondary-image" src="{{ product.images[1] | product_image_url | constrain: 1000 }}">
+              {% endif %}
             </figure>
           </div>
           <div class="product-list-item-name">{{ product.name }}</div>
