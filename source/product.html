@@ -16,7 +16,7 @@
   <div class="product-page-details">
     <div class="product-page-titles">
       <h1 class="page-title product-name">{{ product.name }}</h1>
-      <div class="product-price">
+      <div class="product-page-price">
         {{ product.default_price | money: theme.money_format }}
         {% if product_status != blank %}
           &mdash; <span class="product-status">{{ product_status }}</span>

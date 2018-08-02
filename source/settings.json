@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "images": [
     {
       "variable": "logo",
@@ -41,12 +41,12 @@
     {
       "variable": "text_color",
       "label": "Text Color",
-      "default": "#222222"
+      "default": "#325DA8"
     },
     {
       "variable": "welcome_header_text_color",
       "label": "Welcome Header Text Color",
-      "default": "#222222"
+      "default": "#325DA8"
     }
   ],
   "options": [
