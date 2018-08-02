@@ -20,6 +20,8 @@
         {% endif %}
 
 
+        <div class="header-nav-container">
+          <div class="header-nav-background"></div>
           <ul class="header-nav">
             <li>
               <a href="/products" title="Products">Products</a>
@@ -83,6 +85,7 @@
 
             <li><a href="/cart" title="View Cart">Cart {% if cart.item_count > 0 %}<span class="cart-item-count">{{ cart.item_count }}</span>{% endif %}</a></li>
           </ul>
+        </div>
       </div>
     </header>
     <div class="content">
