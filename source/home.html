@@ -22,9 +22,10 @@
     <div class="featured-categories">
       {% for category in categories.active limit:theme.featured_items %}
         <div class="featured-category">
-          <div class="featured-category-name">
-            <div>{{ category.name }}</div>
-            <a class="button" href="{{ category.url }}">Shop Now</a>
+          <div class="featured-category-info">
+            <div class="featured-category-title">Featured</div>
+            <div class="featured-category-name">{{ category.name }}</div>
+            <a class="featured-category-button button" href="{{ category.url }}">Shop Now</a>
           </div>
           <div class="featured-category-products">
             {% for product in category.products limit:2 %}

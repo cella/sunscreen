@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "images": [
     {
       "variable": "logo",
@@ -10,7 +10,8 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "Adds a welcome image to the Home page"
+      "description": "Adds a welcome image to the Home page",
+      "default": "welcome.png"
     }
   ],
   "image_sets": [
