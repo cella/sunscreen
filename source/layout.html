@@ -29,12 +29,12 @@
                 <ul class="header-nav-dropdown">
                   {% if categories.active != blank %}
                     {% for category in categories.active %}
-                      <li><span>{{ category | link_to }}</span></li>
+                      <li>{{ category | link_to }}</li>
                     {% endfor %}
                   {% endif %}
                   {% if artists.active != blank %}
                     {% for artist in artists.active %}
-                      <li><span>{{ artist | link_to }}</span></li>
+                      <li>{{ artist | link_to }}</li>
                     {% endfor %}
                   {% endif %}
                 </ul>
@@ -46,9 +46,9 @@
                   <a href="#" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
-                      <li><span>{{ page | link_to }}</span></li>
+                      <li>{{ page | link_to }}</li>
                     {% endfor %}
-                    <li><span><a href="/contact" title="Contact">Contact</a></span></li>
+                    <li><a href="/contact" title="Contact">Contact</a></li>
                   </ul>
                 {% endif %}
               </li>
@@ -61,23 +61,23 @@
                 <span>Follow</span>
                 <ul class="header-nav-dropdown">
                   {% if theme.instagram_url != blank %}
-                    <li><span><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></span></li>
+                    <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
                   {% endif %}
 
                   {% if theme.twitter_url != blank %}
-                    <li><span><a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></span></li>
+                    <li><a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
                   {% endif %}
 
                   {% if theme.facebook_url != blank %}
-                    <li><span><a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></span></li>
+                    <li><a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
                   {% endif %}
 
                   {% if theme.pinterest_url != blank %}
-                    <li><span><a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></span></li>
+                    <li><a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
                   {% endif %}
 
                   {% if theme.tumblr_url != blank %}
-                    <li><span><a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></span></li>
+                    <li><a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
                   {% endif %}
                 </ul>
               </li>

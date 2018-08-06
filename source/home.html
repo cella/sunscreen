@@ -30,13 +30,14 @@
           <div class="featured-category-products">
             {% for product in category.products limit:2 %}
               <div class="featured-category-product">
-                {{ product.name }}
+                <img class="featured-category-product-image" src="{{ product.image | product_image_url | constrain: 200 }}">
               </div>
             {% endfor %}
           </div>
         </div>
       {% endfor %}
     </div>
+    <a class="button" href="/products">View All Products</a>
   {% endif %}
 
 {% else %}
@@ -59,6 +60,7 @@
             </a>
           {% endfor %}
         </div>
+        <a class="button" href="/products">View All Products</a>
       {% endif %}
     {% endget %}
   {% endif %}
