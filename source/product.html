@@ -14,15 +14,6 @@
   </div>
 
   <div class="product-page-details">
-    <div class="product-page-titles">
-      <h1 class="page-title product-name">{{ product.name }}</h1>
-      <div class="product-page-price">
-        {{ product.default_price | money: theme.money_format }}
-        {% if product_status != blank %}
-          &mdash; <span class="product-status">{{ product_status }}</span>
-        {% endif %}
-      </div>
-    </div>
     {% if product.status == 'active' %}
       <form action="/cart" class="product-form" method="post">
         {{ product | product_quantity_input, 1, 'product-quantity', 'product-quantity' }}
@@ -45,7 +36,17 @@
           </div>
         {% endif %}
       </form>
-  	{% endif %}
+    {% endif %}
+    <div class="product-page-titles">
+      <h1 class="page-title product-name">{{ product.name }}</h1>
+      <div class="product-page-price">
+        {{ product.default_price | money: theme.money_format }}
+        {% if product_status != blank %}
+          &mdash; <span class="product-status">{{ product_status }}</span>
+        {% endif %}
+      </div>
+    </div>
+
   	<div class="product-description">
   		{% if product.description != blank %}
   			{{ product.description | paragraphs }}
