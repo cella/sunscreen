@@ -2,52 +2,35 @@
 
 .contact-form
   margin: 0 auto
-  max-width: 960px
+  max-width: 700px
+  padding-top: 100px
 
 .contact-form-block
+  display: block
   margin: 0 auto 20px
   max-width: 660px
+  padding-top: 30px
   width: 100%
 
   &.contact-captcha
     margin-bottom: 40px
 
-.contact-label
-  color: $text-color
-  display: block
-  font-size: 12px
-  margin-bottom: 20px
-
-.input-holder
-  position: relative
-
-  input
-    height: 75px
-
-  textarea
-    height: 200px
+  .contact-label
+    cursor: text
+    font-size: 24px
+    text-transform: uppercase
+    +transform(translateY(-34px))
+    +transition(all .3s)
 
   input, textarea
-    border-color: $text-color
-    padding: 14px
+    +transition(all .3s)
+    background-color: transparent
+    border: 0
+    border-bottom: 2px solid $text-color
+    font-size: 15px
+    outline: 0
     width: 100%
 
-    &:focus, &:active
-      border-color: $text-color
-
-.contact-send
-  max-width: 960px
-
-#captcha_image
-  height: 67px
-  position: absolute
-  right: 4px
-  top: 4px
-
-.captcha-instructions
-  color: $text-color
-  font-size: 12px
-  margin-top: 8px
-
-.back-to-shop-button
-  display: inline-block
+    &:focus + .contact-label
+      font-size: 12px
+      +transform(translateY(-74px))

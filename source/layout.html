@@ -40,14 +40,17 @@
                 </ul>
               {% endif %}
             </li>
-            {% if pages.all != blank %}
+            {% if pages.all != blank or store.website != blank %}
               <li>
-                {% if pages.all != blank %}
+                {% if pages.all != blank or store.website != blank%}
                   <a href="#" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
                     {% endfor %}
+                    {% if store.website != blank %}
+                      <li><a href="{{ store.website">Back to site</a></li>
+                    {% endif %}
                     <li><a href="/contact" title="Contact">Contact</a></li>
                   </ul>
                 {% endif %}
@@ -56,7 +59,7 @@
               <li><a href="/contact" title="Contact">Contact</a></li>
             {% endif %}
 
-            {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank or store.website != blank %}
+            {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
               <li>
                 <span>Follow</span>
                 <ul class="header-nav-dropdown">
@@ -106,6 +109,18 @@
         <div class="store-credit">{{ bigcartel_credit }}</div>
       </div>
     </footer>
+    {% if errors != blank %}
+      <div class="error-modal">
+        <div class="error-container">
+          <div class="error-list">
+            {% for error in errors %}
+              <div class="error-liste-item">{{ error }}</div>
+            {% endfor %}
+          </div>
+          <div class="close-errors">x</div>
+        </div>
+      </div>
+    {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>
