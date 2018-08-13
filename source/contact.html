@@ -5,33 +5,28 @@
   <div class="page-content {{ page.category }}-content">
     <form method="post" action="/contact" class="contact-form">
       <label class="contact-form-block contact-name">
-
-        {{ contact | contact_input: 'name', tabindex: 1 }}
+        {{ contact | contact_input: 'name' }}
         <div class="contact-label" for="name-input">Name</div>
       </label>
       <label class="contact-form-block contact-email">
-
-        {{ contact | contact_input: 'email', tabindex: 2 }}
+        {{ contact | contact_input: 'email' }}
         <div class="contact-label" for="email-input">Email</div>
       </label>
       <label class="contact-form-block contact-subject">
-
-        {{ contact | contact_input: 'subject', tabindex: 3 }}
+        {{ contact | contact_input: 'subject' }}
         <div class="contact-label" for="subject-input">Subject</div>
       </label>
       <label class="contact-form-block contact-message">
-
-        {{ contact | contact_input: 'message', tabindex: 4 }}
+        {{ contact | contact_input: 'message' }}
         <div class="contact-label" for="message-textarea">Message</div>
       </label>
       <label class="contact-form-block contact-captcha">
-
-        {{ contact | contact_input: 'captcha', tabindex: 5 }} {{ contact.captcha }}
+        {{ contact | contact_input: 'captcha' }} {{ contact.captcha }}
         <div class="contact-label" for="captcha-input">Spam check</div>
       </label>
       <div class="captcha-instructions">Enter the characters from the image</div>
       <div class="contact-form-block contact-send">
-        <button class="send-message-button button" type="submit" name="submit" title="Send message" tabindex="6">Send message</button>
+        <button class="button send-message-button" type="submit" name="submit" title="Send message">Send message</button>
       </div>
     </form>
   </div>

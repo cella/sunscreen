@@ -37,6 +37,10 @@ button, a.button
   text-align: center
   width: 100%
 
+  &.centered-button
+    display: block
+    margin: 60px auto
+
   &:hover, &:active
     background-color: $background-color
     color: $text-color
@@ -107,6 +111,16 @@ h1
   max-width: 1200px
   width: 100%
 
+.custom-content
+  font-size: 20px
+  line-height: 32px
+  margin: 0 auto
+  max-width: 760px
+  width: 100%
+
+  img, iframe
+    max-width: 100%
+
 .header
   margin-bottom: 100px
 
@@ -160,7 +174,7 @@ h1
   ul
     +transform-origin(100% 0%)
     +transform(translateX(-50%) scaleY(0.75))
-    +transition(all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
+    +transition(all 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
     box-shadow: 0px 2px 4px  rgba(0, 0, 0, .5)
     background: $background-color
     font-size: 15px
@@ -200,6 +214,21 @@ h1
 ul li ul li
   clear: both
   width: 100%
+
+.search-form
+  +flexbox
+  +justify-content(center)
+  +align-items(center)
+  cursor: pointer
+  height: 67px
+  line-height: 20px
+  padding: 0 30px
+
+  input
+    border: 0
+    color: $text-color
+    font-size: 15px
+    text-align: center
 
 .cart-item-count
   font-size: 15px

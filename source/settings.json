@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "images": [
     {
       "variable": "logo",
@@ -55,8 +55,8 @@
       "variable": "show_search",
       "label": "Show search",
       "type": "boolean",
-      "default": false,
-      "description": "Shows a search field"
+      "default": true,
+      "description": "Shows a search field in the Products dropdown"
     },
     {
       "variable": "announcement_message_text",
@@ -88,15 +88,15 @@
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
-      "default": "Categories",
+      "default": "Products",
       "description": "Display featured products or categories on the Home page"
     },
     {
       "variable": "featured_items",
       "label": "Featured items",
       "type": "select",
-      "options": "0..5",
-      "default": 3,
+      "options": "0..100",
+      "default": 12,
       "description": "The number of items featured on the Home page"
     },
     {
@@ -130,7 +130,8 @@
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: http://twitter.com/bigcartel",
+      "default": "1whatever.com"
     },
     {
       "variable": "facebook_url",

@@ -25,8 +25,18 @@
           <ul class="header-nav">
             <li>
               <a href="/products" title="Products">Products</a>
+
+
               {% if categories.active != blank or artists.active != blank %}
                 <ul class="header-nav-dropdown">
+                  {% if theme.show_search %}
+                    <li class="dropdown-search">
+                      <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8">
+                        <input type="hidden" name="utf8" value='✓'>
+                        <input class="search-input" id="search" name="search" placeholder="Search..." type="text" autocomplete="off" />
+                      </form>
+                    </li>
+                  {% endif %}
                   {% if categories.active != blank %}
                     {% for category in categories.active %}
                       <li>{{ category | link_to }}</li>
@@ -42,14 +52,14 @@
             </li>
             {% if pages.all != blank or store.website != blank %}
               <li>
-                {% if pages.all != blank or store.website != blank%}
+                {% if pages.all != blank or store.website != blank %}
                   <a href="#" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
                     {% endfor %}
                     {% if store.website != blank %}
-                      <li><a href="{{ store.website">Back to site</a></li>
+                      <li><a href="{{ store.website }}">Back to site</a></li>
                     {% endif %}
                     <li><a href="/contact" title="Contact">Contact</a></li>
                   </ul>
@@ -59,9 +69,22 @@
               <li><a href="/contact" title="Contact">Contact</a></li>
             {% endif %}
 
-            {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
+            {% capture social_urls %}{{ theme.twitter_url }},{{ theme.facebook_url }},{{ theme.instagram_url }},{{ theme.tumblr_url }},{{ theme.pinterest_url }}{% endcapture %}
+
+            {% assign social_urls_array = social_urls | split: ","  %}
+
+            {% assign social_urls_array_size = social_urls_array | size %}
+            {% if social_urls_array_size == 1 %}
               <li>
-                <span>Follow</span>
+                {% if theme.instagram_url != blank %}<a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a>{% endif %}
+                {% if theme.twitter_url != blank %}<a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a>{% endif %}
+                {% if theme.facebook_url != blank %}<a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a>{% endif %}
+                {% if theme.pinterest_url != blank %}<a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a>{% endif %}
+                {% if theme.tumblr_url != blank %}<a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a>{% endif %}
+              </li>
+            {% else %}
+              <li>
+                <a href="#">Follow</a>
                 <ul class="header-nav-dropdown">
                   {% if theme.instagram_url != blank %}
                     <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
@@ -85,6 +108,8 @@
                 </ul>
               </li>
             {% endif %}
+
+
 
             <li><a href="/cart" title="View Cart">Cart {% if cart.item_count > 0 %}<span class="cart-item-count">{{ cart.item_count }}</span>{% endif %}</a></li>
           </ul>
