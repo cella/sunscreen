@@ -17,3 +17,15 @@ $(window).on("scroll", function(e) {
   }
 
 });
+
+$('.close-errors').click(function(e) {
+  $('.error-modal').hide();
+});
+
+$('.product-option-list li').not('.disabled').click(function() {
+  var option_id = $(this).data("option-id");
+  if (option_id > 0) {
+    $('#option').val(option_id);
+    $('.product-form').submit();
+  }
+});
