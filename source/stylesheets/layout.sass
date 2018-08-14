@@ -3,6 +3,12 @@
 *
   box-sizing: border-box
 
+html
+  height: 100%
+  min-height: 100%
+  position: relative
+  width: 100%
+
 body
   +flexbox
   +flex-direction(column)
@@ -10,10 +16,54 @@ body
   color: $text-color
   font-family: $primary-font
   font-size: 14px
+  height: 100%
   min-height: 100vh
 
   &.maintenance-page
-    text-align: center
+
+
+    .maintenance-content
+      +flexbox
+      +align-items(center)
+      +justify-content(center)
+      +flex-direction(column)
+      height: 100%
+      position: relative
+      text-align: center
+
+    h1
+      font-size: 50px
+      position: absolute
+      top: 100px
+
+      @media screen and (max-width: $break-small)
+        top: 50px
+
+    p
+      font-size: 40px
+
+      @media screen and (max-width: $break-small)
+        font-size: 18px
+
+    .maintenance-social-links
+      font-size: 25px
+      margin: 0
+      padding: 0
+
+      @media screen and (max-width: $break-small)
+        font-size: 15px
+
+      li
+        display: inline-block
+
+        @media screen and (max-width: $break-small)
+          display: block
+          margin-bottom: 10px
+
+      a
+        cursor: pointer !important
+        display: block
+        padding: 4px 10px
 
 a, a:visited
   color: $text-color
