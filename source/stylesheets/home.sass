@@ -1,7 +1,17 @@
 @import 'variables'
 
 .home-welcome
+  color: $welcome-header-text-color
   margin-bottom: 50px
+  position: relative
+
+.welcome-message
+  +transform(translateX(-50%) translateY(-50%))
+  font-size: 50px
+  left: 50%
+  position: absolute
+  text-align: center
+  top: 50%
 
 .featured-categories
 
