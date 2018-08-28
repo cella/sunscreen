@@ -29,3 +29,12 @@ $('.product-option-list li').not('.disabled').click(function() {
     $('.product-form').submit();
   }
 });
+
+$('.cart-item-remove').click(function(e) {
+  $(this).closest('li').find('input.option-quantity').val(0).closest('form').submit();
+  return false;
+});
+$('.option-quantity').blur(function(e) {
+  $(this).closest('form').submit();
+  return false;
+});

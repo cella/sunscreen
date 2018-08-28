@@ -1,7 +1,7 @@
 @import 'variables'
 
 .cart-items
-  border-top: 1px solid #000000
+  border-top: 1px solid $text-color
   list-style: none
   margin: 0 auto
   max-width: 700px
@@ -11,14 +11,19 @@
 .cart-item
   +flexbox
   +align-items(center)
-  border-bottom: 1px solid #000000
+  border-bottom: 1px solid $text-color
   font-size: 15px
   padding: 40px 0
 
 .cart-item-remove
+  cursor: pointer
   height: 26px
   margin-right: 26px
   width: 26px
+
+.cart-remove-icon
+  display: block
+  fill: $text-color
 
 .cart-item-image
   background-position: 50% 50%
@@ -73,8 +78,10 @@ a.continue-shopping
   +all-transitions
   background-color: transparent
   border-color: transparent
+  color: $text-color
+  display: block
+  margin: 0 auto
   padding: 0
-  white-space: nowrap
 
   &:hover, &:focus
     border-color: transparent

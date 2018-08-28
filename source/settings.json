@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "images": [
     {
       "variable": "logo",
@@ -74,7 +74,8 @@
       "variable": "welcome_text",
       "label": "Welcome text",
       "type": "text",
-      "description": "Displays a welcome message on the Home page"
+      "description": "Displays a welcome message on the Home page",
+      "default": "Welcome to my cool store with fun things"
     },
     {
       "variable": "secondary_image_on_hover",
