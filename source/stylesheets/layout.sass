@@ -177,10 +177,16 @@ h1
 .header
   margin-bottom: 100px
 
+  @media screen and (max-width: $break-small)
+    margin-bottom: 50px
+
 .store-link
   display: block
   font-size: 50px
   margin: 100px auto
+
+  @media screen and (max-width: $break-small)
+    margin: 50px auto
 
 .header-nav-container
   padding: 20px 0
@@ -193,6 +199,9 @@ h1
     top: 0
     width: 100%
     z-index: 2
+
+    @media screen and (max-width: $break-small)
+      padding: 20px
 
     .header-nav-background
       opacity: .9
@@ -215,6 +224,10 @@ h1
   padding: 0
   position: relative
 
+  @media screen and (max-width: $break-small)
+    +justify-content(space-evenly)
+    font-size: 20px
+
   > li
     display: block
     position: relative
@@ -223,6 +236,9 @@ h1
       display: block
       padding: 2px 25px
       position: relative
+
+      @media screen and (max-width: $break-small)
+        padding: 2px 6px
 
   ul
     +transform-origin(100% 0%)

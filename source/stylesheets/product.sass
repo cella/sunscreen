@@ -8,6 +8,9 @@
 .primary-product-image-container
   margin-bottom: 100px
 
+  @media screen and (max-width: $break-small)
+    margin-bottom: 50px
+
 .primary-product-image
   display: block
   width: 100%
@@ -27,12 +30,16 @@
   +flexbox
   +flex-wrap(wrap)
 
+  @media screen and (max-width: $break-small)
+    +flex-direction(column)
+
 .product-page-titles
   +flex-basis(100%)
   order: 1
 
 h1.product-name
   font-size: 25px
+  line-height: 36px
   margin-bottom: 8px
   text-align: left
 
@@ -51,6 +58,10 @@ h1.product-name
   max-width: 300px
   order: 2
   width: 100%
+
+  @media screen and (max-width: $break-small)
+    margin-left: 0
+    margin-top: 50px
 
   + .product-page-titles
     +flex-basis(calc(100% - 375px))
