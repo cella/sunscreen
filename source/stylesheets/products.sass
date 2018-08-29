@@ -69,7 +69,24 @@
 .pagination
   +flexbox
   +justify-content(center)
+  color: $text-color
+  font-size: 15px
   margin: 0 auto
   max-width: 375px
   text-align: center
   width: 100%
+
+.pagination-link
+  padding: 2px 10px
+
+.pagination-caption
+  padding: 2px 20px
+
+.pagination-arrow
+  fill: $text-color
+
+  &.prev-arrow
+    +transform(rotate(90deg))
+
+  &.next-arrow
+    +transform(rotate(-90deg))
