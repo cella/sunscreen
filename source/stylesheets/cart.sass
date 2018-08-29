@@ -15,6 +15,10 @@
   font-size: 15px
   padding: 40px 0
 
+  @media screen and (max-width: $break-small)
+    +align-items(flex-start)
+    padding: 30px 0
+
 .cart-item-remove
   cursor: pointer
   height: 26px
@@ -72,7 +76,7 @@
 
 .checkout-btn
   display: block
-  margin: 30px auto 0
+  margin: 50px auto 0
 
 a.continue-shopping
   +all-transitions
@@ -80,7 +84,7 @@ a.continue-shopping
   border-color: transparent
   color: $text-color
   display: block
-  margin: 0 auto
+  margin: 20px auto 0
   padding: 0
 
   &:hover, &:focus
