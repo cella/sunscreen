@@ -57,8 +57,10 @@
   {% if product.images.size > 1 %}
     <div class="secondary-product-image-container">
       {% for image in product.images offset: 1 %}
-        <img class="secondary-product-image" src="{{ image | product_image_url | constrain: 1500 }}" alt="Image of {{ product.name | escape }}">
+        <img alt="Image of {{ product.name | escape }}" class="secondary-product-image" src="{{ image | product_image_url | constrain: 1500 }}">
       {% endfor %}
     </div>
   {% endif %}
 </div>
+
+

@@ -38,3 +38,17 @@ $('.option-quantity').blur(function(e) {
   $(this).closest('form').submit();
   return false;
 });
+
+$('.contact-form input, .contact-form textarea').focus(function(){
+  $(this).parents('.contact-form-group').addClass('focused');
+});
+
+$('.contact-form input, .contact-form textarea').blur(function(){
+  var inputValue = $(this).val();
+  if ( inputValue == "" ) {
+    $(this).removeClass('filled');
+    $(this).parents('.contact-form-group').removeClass('focused');
+  } else {
+    $(this).addClass('filled');
+  }
+})

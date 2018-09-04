@@ -4,28 +4,30 @@
   <h1 class="page-title">{{ page.name }}</h1>
   <div class="page-content {{ page.category }}-content">
     <form method="post" action="/contact" class="contact-form">
-      <label class="contact-form-block contact-name">
+
+      <div class="contact-form-group">
+        <label class="contact-form-label contact-name" for="name-input">Name</label>
         {{ contact | contact_input: 'name' }}
-        <div class="contact-label" for="name-input">Name</div>
-      </label>
-      <label class="contact-form-block contact-email">
+      </div>
+      <div class="contact-form-group">
+        <label class="contact-form-label contact-email" for="email-input">Email</label>
         {{ contact | contact_input: 'email' }}
-        <div class="contact-label" for="email-input">Email</div>
-      </label>
-      <label class="contact-form-block contact-subject">
+      </div>
+      <div class="contact-form-group">
+        <label class="contact-form-label contact-subject" for="subject-input">Subject</label>
         {{ contact | contact_input: 'subject' }}
-        <div class="contact-label" for="subject-input">Subject</div>
-      </label>
-      <label class="contact-form-block contact-message">
+      </div>
+      <div class="contact-form-group">
+        <label class="contact-form-label contact-message" for="message-textarea">Message</label>
         {{ contact | contact_input: 'message' }}
-        <div class="contact-label" for="message-textarea">Message</div>
-      </label>
-      <label class="contact-form-block contact-captcha">
+      </div>
+      <div class="contact-form-group">
+        <label class="contact-form-label contact-captcha">Spam check</label>
         {{ contact | contact_input: 'captcha' }} {{ contact.captcha }}
-        <div class="contact-label" for="captcha-input">Spam check</div>
-      </label>
-      <div class="captcha-instructions">Enter the characters from the image</div>
-      <div class="contact-form-block contact-send">
+        <div class="captcha-instructions">Enter the characters from the image</div>
+      </div>
+
+      <div class="contact-form-group contact-send">
         <button class="button send-message-button" type="submit" name="submit" title="Send message">Send message</button>
       </div>
     </form>

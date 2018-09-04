@@ -118,7 +118,6 @@ h1
   line-height: 50px
   margin-bottom: 55px
 
-
 @keyframes showErrors
   from
     opacity: 0
@@ -164,12 +163,19 @@ h1
   padding: 0 20px
   width: 100%
 
+@media screen and (max-width: $break-small)
+  #product .content .wrapper
+    padding: 0
+
 .custom-content
   font-size: 20px
   line-height: 32px
   margin: 0 auto
   max-width: 760px
   width: 100%
+
+  ul, ol
+    padding-left: 1em
 
   img, iframe
     max-width: 100%
@@ -201,7 +207,7 @@ h1
     z-index: 2
 
     @media screen and (max-width: $break-small)
-      padding: 20px
+      padding: 20px 10px
 
     .header-nav-background
       opacity: .9
@@ -232,13 +238,13 @@ h1
     display: block
     position: relative
 
-    > a
+    > a, > .dropdown-title
       display: block
       padding: 2px 25px
       position: relative
 
       @media screen and (max-width: $break-small)
-        padding: 2px 6px
+        padding: 2px 10px
 
   ul
     +transform-origin(100% 0%)

@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "images": [
     {
       "variable": "logo",
@@ -56,7 +56,7 @@
       "label": "Show search",
       "type": "boolean",
       "default": true,
-      "description": "Shows a search field in the Products dropdown"
+      "description": "Displays a search field in the Products dropdown"
     },
     {
       "variable": "announcement_message_text",
@@ -82,7 +82,7 @@
       "label": "Show secondary image on hover",
       "type": "boolean",
       "default": true,
-      "description": "Shows the secondary product image when a visitor hovers"
+      "description": "Displays the secondary product image when hovered"
     },
     {
       "variable": "featured_items_type",
@@ -90,7 +90,7 @@
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
-      "description": "Display featured products or categories on the Home page"
+      "description": "Displays featured products or categories on the Home page"
     },
     {
       "variable": "featured_items",
@@ -101,20 +101,20 @@
       "description": "The number of items featured on the Home page"
     },
     {
-      "variable": "products_per_row",
+      "variable": "max_products_per_row",
       "label": "Maximum products per row",
       "type": "select",
       "options": "1..4",
-      "default": 3,
-      "description": "The number of products shown per row"
+      "default": 4,
+      "description": "The number of products displayed per row"
     },
     {
       "variable": "products_per_page",
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 3,
-      "description": "The number of products shown per page"
+      "default": 12,
+      "description": "The number of products displayed per page"
     },
     {
       "variable": "money_format",

@@ -26,7 +26,6 @@
             <li>
               <a href="/products" title="Products">Products</a>
 
-
               {% if categories.active != blank or artists.active != blank %}
                 <ul class="header-nav-dropdown">
                   {% if theme.show_search %}
@@ -53,7 +52,7 @@
             {% if pages.all != blank or store.website != blank %}
               <li>
                 {% if pages.all != blank or store.website != blank %}
-                  <a href="#" title="Info">Info</a>
+                  <span class="dropdown-title" title="Info">Info</span>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
@@ -127,6 +126,39 @@
           {{ page_content }}
         {% endif %}
       </div>
+      {% if page.full_url contains '/product/' %}
+        {% if product.categories != blank %}
+
+          {% for category in product.categories %}
+            {% assign productids = category.products | map: 'id' %}
+            <!--{{ productids | uniq | join: ',' }}-->
+
+            <div class="similar-products">
+              <div class="wrapper">
+                <div class="similar-products-header">You might also like</div>
+                <div class="product-list">
+                  {% for product in category.products limit: 3 %}
+                    <a class="product-list-item" href="{{ product.url }}" title="View {{ product.name | escape }}">
+                      <div class="product-list-item-container">
+                        <figure class="product-list-image-container">
+                          <img alt="Image of {{ product.name | escape }}" class="product-list-image {% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000, 1000 }}">
+                          {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
+                          <img class="product-list-image {% if product.images[1].height > product.images[1].width %}image-tall{% else %}image-wide{% endif %} secondary-image" src="{{ product.images[1] | product_image_url | constrain: 1000, 1000 }}">
+                          {% endif %}
+                        </figure>
+                      </div>
+                      <div class="product-list-item-name">{{ product.name }}</div>
+                      <div class="product-list-item-price">{{ product.default_price | money: theme.money_format }}</div>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+          {% endfor %}
+
+        {% endif %}
+      {% endif %}
     </div>
     <footer class="footer">
       <div class="wrapper">

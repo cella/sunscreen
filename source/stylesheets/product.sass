@@ -32,6 +32,7 @@
 
   @media screen and (max-width: $break-small)
     +flex-direction(column)
+    padding: 0 20px
 
 .product-page-titles
   +flex-basis(100%)
@@ -53,6 +54,12 @@ h1.product-name
   max-width: 375px
   order: 3
 
+  ul, ol
+    padding-left: 1em
+
+  img, iframe
+    max-width: 100%
+
 .product-form
   margin-left: auto
   max-width: 300px
@@ -62,6 +69,10 @@ h1.product-name
   @media screen and (max-width: $break-small)
     margin-left: 0
     margin-top: 50px
+    max-width: 100%
+
+    .add-to-cart-button
+      max-width: 100%
 
   + .product-page-titles
     +flex-basis(calc(100% - 375px))
@@ -145,3 +156,16 @@ h1.product-name
     opacity: 1
     visibility: visible
     +transform(scale(1) translateY(0))
+
+.similar-products
+  background-color: $accent-color
+  margin-top: 200px
+  padding: 100px 0
+
+  @media screen and (max-width: $break-small)
+    padding: 50px 0
+
+.similar-products-header
+  font-size: 25px
+  margin-bottom: 40px
+  text-align: center
