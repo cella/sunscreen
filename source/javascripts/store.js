@@ -52,3 +52,13 @@ $('.contact-form input, .contact-form textarea').blur(function(){
     $(this).addClass('filled');
   }
 })
+
+$(document).ready(function() {
+  $('.contact-form input, .contact-form textarea').each(function(){
+    var inputValue = $(this).val();
+    if ( inputValue != "" ) {
+      $(this).addClass('filled');
+      $(this).parents('.contact-form-group').addClass('focused');
+    }
+  })
+})
