@@ -121,6 +121,19 @@
           <h1 class="page-title">{{ page.name }}</h1>
           <div class="page-content {{ page.category }}-content">
             {{ page_content | paragraphs }}
+
+              {% if page.name == theme.lookbook_page_name %}
+
+                {% if theme.image_sets.lookbook_images.size > 0 %}
+                  <div class="lookbook-gallery">
+                    {% for image in theme.image_sets.lookbook_images %}
+                      <img class="lookbook-gallery-image" src="{{ image.url | constrain: '1400', '' }}">
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+              {% endif %}
+
           </div>
         {% else %}
           {{ page_content }}
