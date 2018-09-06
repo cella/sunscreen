@@ -15,7 +15,6 @@ $(window).on("scroll", function(e) {
      $('.header-nav-container').removeClass("fixed");
      $('body').css('padding-top',0);
   }
-
 });
 
 $('.close-errors').click(function(e) {

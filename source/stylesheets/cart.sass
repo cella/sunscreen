@@ -22,9 +22,12 @@
 
 .cart-item-remove
   cursor: pointer
-  height: 26px
+  height: 25px
   margin-right: 26px
-  width: 26px
+  width: 25px
+
+  @media screen and (max-width: $break-small)
+    margin-right: 10px
 
 .cart-remove-icon
   display: block
@@ -39,9 +42,16 @@
   max-width: 120px
   width: 100%
 
+  @media screen and (max-width: $break-small)
+    height: 60px
+    max-width: 60px
+
 .cart-item-details
   max-width: 300px
   width: 100%
+
+  @media screen and (max-width: $break-small)
+    +flex-basis(calc(100% - 115px))
 
 .cart-item-details-price
   margin-left: auto
@@ -78,6 +88,9 @@
 .checkout-btn
   display: block
   margin: 50px auto 0
+
+  @media screen and (max-width: $break-small)
+    max-width: 100%
 
 a.continue-shopping
   +all-transitions

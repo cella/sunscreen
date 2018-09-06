@@ -31,6 +31,7 @@
                   {% if theme.show_search %}
                     <li class="dropdown-search">
                       <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8">
+                        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle stroke="{{ theme.text_color }}" cx="5" cy="5" r="4.5"/><path fill="{{ theme.text_color }}" d="M8.318 7.732l2.829 2.829-.707.707L7.61 8.44z"/></g></svg>
                         <input type="hidden" name="utf8" value='✓'>
                         <input class="search-input" id="search" name="search" placeholder="Search..." type="text" autocomplete="off" />
                       </form>
@@ -188,7 +189,7 @@
               <div class="error-liste-item">{{ error }}</div>
             {% endfor %}
           </div>
-          <div class="close-errors">x</div>
+          <div class="close-errors"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></div>
         </div>
       </div>
     {% endif %}
