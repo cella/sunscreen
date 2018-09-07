@@ -2,7 +2,7 @@
   <div class="home-welcome">
     {% if theme.welcome_image %}<img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">{% endif %}
     {% if theme.welcome_text != blank %}
-      <div class="welcome-message">
+      <div class="welcome-message{% if theme.welcome_image %} with-image{% endif %}">
         {% if theme.welcome_text != blank %}<div class="welcome-message-text">{{ theme.welcome_text }}</div>{% endif %}
       </div>
     {% endif %}

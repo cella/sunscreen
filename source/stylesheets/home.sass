@@ -2,17 +2,23 @@
 
 .home-welcome
   color: $welcome-header-text-color
-  margin-bottom: 50px
+  margin-bottom: 100px
   position: relative
 
+  @media screen and (max-width: $break-small)
+    margin-bottom: 50px
+
 .welcome-message
-  +transform(translateX(-50%) translateY(-50%))
   font-size: 50px
-  left: 50%
-  position: absolute
   text-align: center
-  top: 50%
-  width: 75%
+  width: 100%
+
+  &.with-image
+    +transform(translateX(-50%) translateY(-50%))
+    left: 50%
+    position: absolute
+    top: 50%
+    width: 75%
 
   @media screen and (max-width: $break-small)
     font-size: 25px
