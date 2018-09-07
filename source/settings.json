@@ -10,8 +10,7 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "Adds a welcome image to the Home page",
-      "default": "welcome.png"
+      "description": "Adds a welcome image to the Home page"
     }
   ],
   "image_sets": [
