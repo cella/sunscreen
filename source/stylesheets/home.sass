@@ -28,6 +28,7 @@
   +flexbox
   background-color: $accent-color
   margin-bottom: 30px
+  min-height: 400px
   padding: 80px
 
 .featured-category-info
@@ -63,6 +64,15 @@
   position: absolute
   max-width: 50%
   top: 0
+
+  &.single-featured-product
+    +transform(translateX(-50%))
+    left: 50%
+
+  img
+    display: block
+    max-width: 100%
+    width: 100%
 
   &:nth-child(2)
     bottom: 0

@@ -60,4 +60,61 @@ $(document).ready(function() {
       $(this).parents('.contact-form-group').addClass('focused');
     }
   })
+});
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  return hash;
+};
+
+if ($('.flash-message-text').length) {
+  var announcementMessage = $('.flash-message-text').html();
+  var hashedMessage = announcementMessage.hashCode();
+  var cookieValue = getCookie('hide-announcement-message');
+  if (cookieValue) {
+    if (cookieValue != hashedMessage) {
+      $('body').addClass('has-flash-message');
+    }
+  }
+  else {
+    $('body').addClass('has-flash-message');
+  }
+}
+
+function setCookie(name,value,days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+function eraseCookie(name) {
+  document.cookie = name+'=; Max-Age=-99999999;';
+}
+
+$('.flash-message-close').click(function(e) {
+  $('.flash-message').slideUp('fast', function() {
+    $('body').removeClass('has-flash-message');
+    setCookie('hide-announcement-message',hashedMessage,7);
+  });
 })
