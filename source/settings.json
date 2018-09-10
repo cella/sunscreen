@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "images": [
     {
       "variable": "logo",
@@ -51,13 +51,6 @@
   ],
   "options": [
     {
-      "variable": "show_search",
-      "label": "Show search",
-      "type": "boolean",
-      "default": true,
-      "description": "Displays a search field in the Products dropdown"
-    },
-    {
       "variable": "announcement_message_text",
       "label": "Announcement text",
       "type": "text",
@@ -73,8 +66,7 @@
       "variable": "welcome_text",
       "label": "Welcome text",
       "type": "text",
-      "description": "Displays a welcome message on the Home page",
-      "default": "Welcome to my cool store with fun things"
+      "description": "Displays a welcome message on the Home page"
     },
     {
       "variable": "secondary_image_on_hover",
@@ -88,7 +80,7 @@
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
-      "default": "Products",
+      "default": "Categories",
       "description": "Displays featured products or categories on the Home page"
     },
     {
@@ -125,6 +117,13 @@
       ],
       "default": "sign",
       "description": "Sets the display of prices in your shop"
+    },
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays a search field in the Products dropdown"
     },
     {
       "variable": "twitter_url",
