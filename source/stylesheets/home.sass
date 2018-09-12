@@ -40,6 +40,7 @@
   @media screen and (max-width: $break-small)
     +flex-direction(column)
     height: 625px
+    padding: 30px
 
 .featured-category-info
   +flexbox
@@ -70,11 +71,13 @@
   position: relative
 
 .featured-category-product
+  height: 100%
   left: 0
   position: absolute
   max-height: 50%
   max-width: 60%
   top: 0
+  width: 100%
 
   &.single-featured-product
     +transform(translateX(-50%))
