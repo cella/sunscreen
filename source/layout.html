@@ -31,7 +31,7 @@
                   {% if theme.show_search %}
                     <li class="dropdown-search">
                       <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8">
-                        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle stroke="{{ theme.text_color }}" cx="5" cy="5" r="4.5"/><path fill="{{ theme.text_color }}" d="M8.318 7.732l2.829 2.829-.707.707L7.61 8.44z"/></g></svg>
+                        <button type="submit" class="search-button"><svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle stroke="{{ theme.text_color }}" cx="5" cy="5" r="4.5"/><path fill="{{ theme.text_color }}" d="M8.318 7.732l2.829 2.829-.707.707L7.61 8.44z"/></g></svg></button>
                         <input type="hidden" name="utf8" value='✓'>
                         <input class="search-input" id="search" name="search" placeholder="Search..." type="text" autocomplete="off" />
                       </form>

@@ -118,3 +118,18 @@ $('.flash-message-close').click(function(e) {
     setCookie('hide-announcement-message',hashedMessage,7);
   });
 })
+
+document.addEventListener('input', function (event) {
+	if (event.target.tagName.toLowerCase() !== 'textarea') return;
+	autoExpand(event.target);
+}, false);
+
+$(document).ready(function() {
+  autoExpand($('textarea')[0])
+});
+
+var autoExpand = function (textarea) {
+  textarea.style.height = 'inherit';
+  var height = textarea.scrollHeight;
+  textarea.style.height = height + 'px';
+};
