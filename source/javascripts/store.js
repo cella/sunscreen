@@ -129,7 +129,9 @@ $(document).ready(function() {
 });
 
 var autoExpand = function (textarea) {
-  textarea.style.height = 'inherit';
-  var height = textarea.scrollHeight;
-  textarea.style.height = height + 'px';
+  if (textarea) {
+    textarea.style.height = 'inherit';
+    var height = textarea.scrollHeight;
+    textarea.style.height = height + 'px';
+  }
 };
