@@ -8,6 +8,8 @@
 
   @media screen and (max-width: $break-small)
     +justify-content(flex-start)
+    margin: 0 -10px
+    width: auto
 
 .product-list-item
   display: inline-block
@@ -18,8 +20,8 @@
   width: #{"{% if theme.max_products_per_row == 4 %} 25% {% elsif theme.max_products_per_row == 3 %} 33.33% {% elsif theme.max_products_per_row == 2 %} 50% {% else %} 100% {% endif %}"}
 
   @media screen and (max-width: $break-small)
+    padding: 0 10px 50px 10px
     width: 50%
-
 
 .product-list-item-container
   cursor: default
@@ -71,6 +73,7 @@
   font-size: 20px
   line-height: 30px
   margin-bottom: 5px
+  padding: 0 20px
 
 .product-list-item-price
   font-size: 15px

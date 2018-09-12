@@ -53,7 +53,7 @@
             {% if pages.all != blank or store.website != blank %}
               <li>
                 {% if pages.all != blank or store.website != blank %}
-                  <span class="dropdown-title" title="Info">Info</span>
+                  <a href="#" onclick="return false;" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
@@ -85,7 +85,7 @@
                 </li>
               {% else %}
                 <li>
-                  <a href="#">Follow</a>
+                  <a href="#" onclick="return false;" title="Follow">Follow</a>
                   <ul class="header-nav-dropdown">
                     {% if theme.instagram_url != blank %}
                       <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
