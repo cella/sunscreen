@@ -24,7 +24,7 @@
           <div class="header-nav-background"></div>
           <ul class="header-nav">
             <li>
-              <a href="#" onclick="return false;" title="Products">Products</a>
+              <a href="#" onclick="return false;" title="Shop">Shop</a>
 
               {% if categories.active != blank or artists.active != blank %}
                 <ul class="header-nav-dropdown">
@@ -37,6 +37,7 @@
                       </form>
                     </li>
                   {% endif %}
+                  <li><a href="/products" title="All Products">All Products</a></li>
                   {% if categories.active != blank %}
                     {% for category in categories.active %}
                       <li>{{ category | link_to }}</li>
