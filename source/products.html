@@ -1,6 +1,6 @@
-<h1 class="page-title products-page-title">{{ page.name }}</h1>
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
+    <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Product search - {{ paginate.items | pluralize: "result", "results" "}}{% else %}{{ page.name }}{% endif %}</h1>
     <div class="product-list">
       {% for product in products %}
         <a class="product-list-item" href="{{ product.url }}" title="View {{ product.name | escape }}">
@@ -17,7 +17,6 @@
         </a>
       {% endfor %}
     </div>
-
     {% if paginate.pages > 1 %}
       <div class="pagination">
         {% if paginate.previous.is_link %}
@@ -33,7 +32,11 @@
         {% endif %}
       </div>
   {% else %}
-    <p>No products found.</p>
+    {% if page.full_url contains "search=" %}
+      <h1 class="page-title products-page-title">No products matched your search.</h1>
+      <a class="button centered-button" href="/products">View All</a>
+    {% else %}
+      <h1 class="page-title products-page-title">{{ page.name }}</h1>
+    {% endif %}
   {% endif %}
-
 {% endpaginate %}
