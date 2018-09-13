@@ -124,14 +124,34 @@ document.addEventListener('input', function (event) {
 	autoExpand(event.target);
 }, false);
 
-$(document).ready(function() {
-  autoExpand($('textarea')[0])
-});
-
 var autoExpand = function (textarea) {
   if (textarea) {
-    textarea.style.height = 'inherit';
-    var height = textarea.scrollHeight;
-    textarea.style.height = height + 'px';
+    if (textarea.value) {
+
+      textarea.style.height = 'inherit';
+      var height = textarea.scrollHeight;
+      console.log(height);
+      textarea.style.height = height + 'px';
+    }
   }
 };
+
+$(document).ready(function() {
+  autoExpand($('textarea')[0]);
+  if ($('.all-similar-products').length) {
+    var num_products = $('.all-similar-products > a').length;
+    var elements = $('.all-similar-products').children().toArray();
+    var num_to_display = 3;
+    for (var i=1; i<=num_to_display; i++) {
+      var randomIndex = getRandomIndex(elements);
+      $('.similar-product-list').append($('.all-similar-products').children().eq(randomIndex));
+      elements.splice(randomIndex, 1);
+    }
+    $('.all-similar-products').remove();
+  }
+});
+
+function getRandomIndex(elements) {
+  return Math.floor(Math.random() * elements.length);
+}
+

@@ -16,20 +16,20 @@
     margin-bottom: 40px
 
   .contact-form-label
+    +transition(all 150ms)
+    background-color: transparent
+    color: $text-color
     cursor: text
-    font-size: 25px
+    font-size: 20px
     left: 0
     position: absolute
     top: 20px
-    color: $text-color
-    background-color: transparent
-    transition: transform 150ms ease-out, font-size 150ms ease-out
 
   input, textarea
     +transition(all .3s)
     background-color: transparent
     border: 0
-    border-bottom: 2px solid $text-color
+    border-bottom: 1px solid $text-color
     font-size: 25px
     height: 70px
     outline: 0

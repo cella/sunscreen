@@ -142,36 +142,37 @@
       </div>
       {% if page.full_url contains '/product/' %}
         {% if product.categories != blank %}
-
           {% for category in product.categories %}
-            {% assign productids = category.products | map: 'id' %}
-            <!--{{ productids | uniq | join: ',' }}-->
-
-            <div class="similar-products">
-              <div class="wrapper">
-                <div class="similar-products-header">You might also like</div>
-                <div class="product-list">
-                  {% for product in category.products limit: 3 %}
-                    <a class="product-list-item similar-product" href="{{ product.url }}" title="View {{ product.name | escape }}">
-                      <div class="product-list-item-container">
-                        <figure class="product-list-image-container">
-                          <img alt="Image of {{ product.name | escape }}" class="product-list-image {% if product.image.height > product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ product.image | product_image_url | constrain: 1000, 1000 }}">
-                          {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                          <img class="product-list-image {% if product.images[1].height > product.images[1].width %}image-tall{% else %}image-wide{% endif %} secondary-image" src="{{ product.images[1] | product_image_url | constrain: 1000, 1000 }}">
-                          {% endif %}
-                        </figure>
-                      </div>
-                      <div class="product-list-item-name">{{ product.name }}</div>
-                      <div class="product-list-item-price">{{ product.default_price | money: theme.money_format }}</div>
-                    </a>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-
+            {% capture product_divs %}
+              {% for category_product in category.products %}
+                {% if product.id != category_product.id %}
+                  <a id="product-{{ category_product.id }}" class="product-list-item" href="{{ category_product.url }}" title="View {{ category_product.name | escape }}">
+                    <div class="product-list-item-container">
+                      <figure class="product-list-image-container">
+                        <img alt="Image of {{ category_product.name | escape }}" class="product-list-image {% if category_product.image.height > category_product.image.width %}image-tall{% else %}image-wide{% endif %}" src="{{ category_product.image | product_image_url | constrain: 1000, 1000 }}">
+                        {% if category_product.images[1] != blank and theme.secondary_image_on_hover == true %}
+                          <img class="product-list-image {% if category_product.images[1].height > category_product.images[1].width %}image-tall{% else %}image-wide{% endif %} secondary-image" src="{{ category_product.images[1] | product_image_url | constrain: 1000, 1000 }}">
+                        {% endif %}
+                      </figure>
+                    </div>
+                    <div class="product-list-item-name">{{ category_product.name }}</div>
+                    <div class="product-list-item-price">{{ category_product.default_price | money: theme.money_format }}</div>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            {% endcapture %}
           {% endfor %}
-
         {% endif %}
+      {% endif %}
+
+      {% if product_divs != blank %}
+        <div class="all-similar-products">{{ product_divs }}</div>
+        <div class="similar-products">
+          <div class="wrapper">
+            <div class="similar-products-header">You might also like</div>
+            <div class="product-list similar-product-list"></div>
+          </div>
+        </div>
       {% endif %}
     </div>
     <footer class="footer">
