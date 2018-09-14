@@ -39,13 +39,13 @@ $('.option-quantity').blur(function(e) {
   return false;
 });
 
-$('.contact-form input, .contact-form textarea').focus(function(){
+$('.contact-form input[type="text"], .contact-form textarea').focus(function(){
   $(this).parents('.contact-form-group').addClass('focused');
 });
 
-$('.contact-form input, .contact-form textarea').blur(function(){
+$('.contact-form input[type="text"], .contact-form textarea').blur(function(){
   var inputValue = $(this).val();
-  if ( inputValue == "" ) {
+  if (inputValue.length == 0) {
     $(this).removeClass('filled');
     $(this).parents('.contact-form-group').removeClass('focused');
   } else {
@@ -54,9 +54,9 @@ $('.contact-form input, .contact-form textarea').blur(function(){
 })
 
 $(document).ready(function() {
-  $('.contact-form input, .contact-form textarea').each(function(){
+  $('.contact-form input[type="text"], .contact-form textarea').each(function(){
     var inputValue = $(this).val();
-    if ( inputValue != "" ) {
+    if (inputValue.length > 0) {
       $(this).addClass('filled');
       $(this).parents('.contact-form-group').addClass('focused');
     }
