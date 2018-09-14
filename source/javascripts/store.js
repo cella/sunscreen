@@ -1,6 +1,7 @@
 var inPreview = (/\/admin\/design/.test(top.location.pathname));
 
 $('.product-option-selection-title').click(function(e) {
+  $(this).toggleClass('opened');
   $('.product-option-list').toggleClass('visible');
 });
 

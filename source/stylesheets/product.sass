@@ -103,6 +103,9 @@ h1.product-name
   padding: 0 50px
   white-space: nowrap
 
+  &.opened .down-arrow
+    +transform(rotate(180deg))
+
   &:hover
     background: $text-color
     color: $background-color
