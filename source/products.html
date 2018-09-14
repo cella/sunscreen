@@ -1,6 +1,6 @@
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
-    <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Product search - {{ paginate.items | pluralize: "result", "results" "}}{% else %}{{ page.name }}{% endif %}</h1>
+    <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Search results - {{ paginate.items }}{% else %}{{ page.name }}{% endif %}</h1>
     <div class="product-list">
       {% for product in products %}
         <a class="product-list-item" href="{{ product.url }}" title="View {{ product.name | escape }}">
