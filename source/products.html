@@ -20,13 +20,13 @@
     {% if paginate.pages > 1 %}
       <div class="pagination">
         {% if paginate.previous.is_link %}
-          <a class="pagination-link" href="{{ paginate.previous.url }}" title="Previous Page">
+          <a class="pagination-link prev-link" href="{{ paginate.previous.url }}" title="Previous Page">
             <svg class="pagination-arrow prev-arrow" width="9" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M9 5.787l-.73-.694-3.248 3.04V0H3.978v8.133L.731 5.093 0 5.787 4.5 10z" fill-rule="nonzero"/></svg>
           </a>
         {% endif %}
         <span class="pagination-caption">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
         {% if paginate.next.is_link %}
-          <a class="pagination-link" href="{{ paginate.next.url }}" title="Next Page">
+          <a class="pagination-link next-link" href="{{ paginate.next.url }}" title="Next Page">
             <svg class="pagination-arrow next-arrow" width="9" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M9 5.787l-.73-.694-3.248 3.04V0H3.978v8.133L.731 5.093 0 5.787 4.5 10z" fill-rule="nonzero"/></svg>
           </a>{% endif %}
         {% endif %}
