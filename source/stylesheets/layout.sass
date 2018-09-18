@@ -227,14 +227,15 @@ h1
   display: block
   font-size: 50px
   margin: 100px auto
+  max-width: 754px
+  width: 100%
 
   @media screen and (max-width: $break-small)
     margin: 50px auto
 
 .store-logo
   display: block
-  margin: 0 auto
-  max-width: 754px
+  max-width: 100%
 
 .header-nav-container
   background: $background-color
@@ -287,8 +288,10 @@ h1
     left: 50%
     list-style: none
     margin: 0
+    max-height: 550px
     opacity: 0
-    padding: 0
+    overflow: auto
+    padding: 10px 0 0 0
     position: absolute
     top: 100%
     width: 300px
@@ -343,6 +346,7 @@ ul li ul li
 
   input
     border: 0
+    background-color: $background-color
     color: $text-color
     font-size: 15px
     text-align: center
@@ -359,6 +363,10 @@ ul li ul li
   right: -15px
   text-align: left
   top: -8px
+
+  &.no-items
+    opacity: 0
+    visibility: hidden
 
 header, footer
   +flexbox

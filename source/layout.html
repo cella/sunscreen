@@ -13,7 +13,7 @@
       <div class="wrapper">
         {% if theme.logo != blank %}
           <a class="store-link" href="/" title="{{ store.name | escape }}">
-            <img alt="{{ store.name | escape }}" class="store-logo" src="{{ theme.images.logo.url | constrain: 500, 200 }}">
+            <img alt="{{ store.name | escape }}" class="store-logo" src="{{ theme.images.logo.url | constrain: 1508, 1508 }}">
           </a>
         {% else %}
           <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
@@ -111,7 +111,7 @@
               {% endif %}
             {% endif %}
 
-            <li><a href="/cart" title="View Cart">Cart {% if cart.item_count > 0 %}<span class="cart-item-count">{{ cart.item_count }}</span>{% endif %}</a></li>
+            <li><a href="/cart" title="View Cart">Cart <span class="cart-item-count {% if cart.item_count == 0 %}no-items{% endif %}">{{ cart.item_count }}</span></a></li>
           </ul>
         </div>
       </div>
