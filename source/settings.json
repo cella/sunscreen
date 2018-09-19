@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.34",
+  "version": "0.0.36",
   "images": [
     {
       "variable": "logo",
@@ -17,7 +17,7 @@
     {
       "variable": "lookbook_images",
       "label": "Lookbook images",
-      "description": "Adds an image gallery to a specified page"
+      "description": "Adds a gallery to the specified Lookbook page"
     }
   ],
   "fonts": [
@@ -49,6 +49,11 @@
       "default": "#325DA8"
     },
     {
+      "variable": "shop_name_text_color",
+      "label": "Shop Name Text Color",
+      "default": "#325DA8"
+    },
+    {
       "variable": "welcome_header_text_color",
       "label": "Welcome Header Text Color",
       "default": "#325DA8"
@@ -65,7 +70,7 @@
       "variable": "lookbook_page_name",
       "label": "Lookbook Page Name",
       "type": "text",
-      "description": "Displays your lookbook image gallery on this page"
+      "description": "Create a custom page for your lookbook, and enter the page name in this field"
     },
     {
       "variable": "welcome_text",
@@ -122,6 +127,13 @@
       ],
       "default": "sign",
       "description": "Sets the display of prices in your shop"
+    },
+    {
+      "variable": "show_similar_products",
+      "label": "Show related products",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays related products on the Product page"
     },
     {
       "variable": "show_search",

@@ -17,7 +17,7 @@
 
 .secondary-product-image
   display: block
-  margin-bottom: 100px
+  margin-bottom: 50px
   width: 100%
 
   &:last-child
@@ -29,7 +29,7 @@
 
   @media screen and (max-width: $break-small)
     +flex-direction(column)
-    padding: 0 20px
+    padding: 0 50px
 
 .product-page-titles
   +flex-basis(100%)
@@ -47,8 +47,12 @@ h1.product-name
 .product-description
   font-size: 20px
   line-height: 32px
-  margin-top: 50px
+  margin-top: 30px
   order: 3
+
+  @media screen and (max-width: $break-small)
+    font-size: 18px
+    line-height: 28px
 
   ul, ol
     padding-left: 1em
@@ -167,6 +171,9 @@ h1.product-name
   background-color: $accent-color
   margin-top: 200px
   padding: 100px 0
+
+  .similar-product
+    width: 33.33%
 
   @media screen and (max-width: $break-medium)
     margin-top: 50px
