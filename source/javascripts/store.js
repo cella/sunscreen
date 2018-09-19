@@ -34,7 +34,6 @@ $('.product-form').submit(function(e) {
           $('.product-option-list').toggleClass('visible');
         }, 300);
       });
-
     }
   }
 });
@@ -167,7 +166,6 @@ document.addEventListener('input', function (event) {
 var autoExpand = function (textarea) {
   if (textarea) {
     if (textarea.value) {
-
       textarea.style.height = 'inherit';
       var height = textarea.scrollHeight;
       console.log(height);
@@ -194,4 +192,3 @@ $(document).ready(function() {
 function getRandomIndex(elements) {
   return Math.floor(Math.random() * elements.length);
 }
-

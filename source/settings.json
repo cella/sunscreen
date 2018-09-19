@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.27",
+  "version": "0.0.34",
   "images": [
     {
       "variable": "logo",
@@ -21,6 +21,11 @@
     }
   ],
   "fonts": [
+    {
+      "variable": "shop_name_font",
+      "label": "Shop Name Font",
+      "default": "Questrial"
+    },
     {
       "variable": "primary_font",
       "label": "Primary Font",
