@@ -3,6 +3,15 @@
     <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Search results - {{ paginate.items }}{% else %}{{ page.name }}{% endif %}</h1>
     <div class="product-list">
       {% for product in products %}
+        {% assign product_status = '' %}
+        {% case product.status %}
+        	{% when 'active' %}
+        		{% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+        	{% when 'sold-out' %}
+        		{% assign product_status = 'Sold out' %}
+        	{% when 'coming-soon' %}
+        		{% assign product_status = 'Coming soon' %}
+        {% endcase %}
         <a class="product-list-item" href="{{ product.url }}" title="View {{ product.name | escape }}">
           <div class="product-list-item-container">
             <figure class="product-list-image-container">
@@ -13,7 +22,7 @@
             </figure>
           </div>
           <div class="product-list-item-name">{{ product.name }}</div>
-          <div class="product-list-item-price">{{ product.default_price | money: theme.money_format }}</div>
+          <div class="product-list-item-price">{{ product.default_price | money: theme.money_format }}{% if product_status != blank %} &mdash; <span class="product-status">{{ product_status }}</span>{% endif %}</div>
         </a>
       {% endfor %}
     </div>

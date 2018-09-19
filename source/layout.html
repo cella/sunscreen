@@ -145,6 +145,15 @@
           {% for category in product.categories %}
             {% capture product_divs %}
               {% for category_product in category.products %}
+                {% assign product_status = '' %}
+                {% case category_product.status %}
+                	{% when 'active' %}
+                		{% if category_product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+                	{% when 'sold-out' %}
+                		{% assign product_status = 'Sold out' %}
+                	{% when 'coming-soon' %}
+                		{% assign product_status = 'Coming soon' %}
+                {% endcase %}
                 {% if product.id != category_product.id %}
                   <a id="product-{{ category_product.id }}" class="product-list-item similar-product" href="{{ category_product.url }}" title="View {{ category_product.name | escape }}">
                     <div class="product-list-item-container">
@@ -156,7 +165,7 @@
                       </figure>
                     </div>
                     <div class="product-list-item-name">{{ category_product.name }}</div>
-                    <div class="product-list-item-price">{{ category_product.default_price | money: theme.money_format }}</div>
+                    <div class="product-list-item-price">{{ category_product.default_price | money: theme.money_format }} {% if product_status != blank %} &mdash; <span class="product-status">{{ product_status }}</span>{% endif %}</div>
                   </a>
                 {% endif %}
               {% endfor %}
