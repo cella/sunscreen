@@ -21,7 +21,7 @@
 
   @media screen and (max-width: $break-small)
     padding: 0 10px 50px 10px
-    width: 100%
+    width: #{"{% if theme.max_products_per_row_mobile == 2 %} 50% {% else %} 100% {% endif %}"}
 
 .product-list-item-container
   cursor: default
@@ -34,13 +34,8 @@
   font-size: 0
   width: 100%
 
-  &:hover .product-list-image:first-child
-    opacity: 0
-    visibility: hidden
-
   &:hover .product-list-image:last-child
     opacity: 1
-    visibility: visible
 
 .product-list-image
   +transition(all 0.2s cubic-bezier(0.5, 0, 0, 1.25))
@@ -65,17 +60,20 @@
 
   &:last-child
     opacity: 0
-    visibility: hidden
 
   &:only-child
     opacity: 1
-    visibility: visible
 
 .product-list-item-name
   font-size: 20px
   line-height: 30px
   margin-bottom: 5px
   padding: 0 20px
+
+  @media screen and (max-width: $break-small)
+    font-size: #{"{% if theme.max_products_per_row_mobile == 2 %} 18px {% else %} 20px {% endif %}"}
+    line-height: #{"{% if theme.max_products_per_row_mobile == 2 %} 26px {% else %} 30px {% endif %}"}
+    padding: 0 8px
 
 .product-list-item-price
   font-size: 15px

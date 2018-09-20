@@ -79,13 +79,6 @@
       "description": "Displays a welcome message on the Home page"
     },
     {
-      "variable": "secondary_image_on_hover",
-      "label": "Show secondary image on hover",
-      "type": "boolean",
-      "default": true,
-      "description": "Displays the secondary product image when hovered"
-    },
-    {
       "variable": "featured_items_type",
       "label": "Featured items type",
       "type": "select",
@@ -108,6 +101,14 @@
       "options": "1..4",
       "default": 4,
       "description": "The number of products displayed per row"
+    },
+    {
+      "variable": "max_products_per_row_mobile",
+      "label": "Maximum products per row (mobile)",
+      "type": "select",
+      "options": "1..2",
+      "default": 2,
+      "description": "The number of products displayed per row on smaller screens"
     },
     {
       "variable": "products_per_page",
@@ -141,6 +142,13 @@
       "type": "boolean",
       "default": true,
       "description": "Displays a search field in the Products dropdown"
+    },
+    {
+      "variable": "secondary_image_on_hover",
+      "label": "Show secondary image on hover",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays the secondary product image when hovered"
     },
     {
       "variable": "twitter_url",
