@@ -184,6 +184,9 @@ $(document).ready(function() {
       var randomIndex = getRandomIndex(elements);
       $('.similar-product-list').append($('.all-similar-products').children().eq(randomIndex));
       elements.splice(randomIndex, 1);
+      $('.similar-product-list .similar-product-list-image').each(function() {
+        $(this).attr("src",$(this).data("src"));
+      })
     }
     $('.all-similar-products').remove();
   }
