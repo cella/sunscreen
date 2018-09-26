@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "0.0.36",
+  "version": "0.0.45",
   "images": [
     {
       "variable": "logo",
@@ -70,7 +70,7 @@
       "variable": "lookbook_page_name",
       "label": "Lookbook Page Name",
       "type": "text",
-      "description": "Create a custom page for your lookbook, and enter the page name in this field"
+      "description": "Create a custom page for your lookbook, then enter the page name in this field"
     },
     {
       "variable": "welcome_text",

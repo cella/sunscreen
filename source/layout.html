@@ -120,7 +120,7 @@
       </div>
     </header>
     <div class="content">
-      <div class="wrapper">
+      <div class="wrapper {% if theme.featured_items_type == 'Categories' and page.permalink == 'home' %}featured-categories-wrapper{% endif %}">
         {% if page.category == 'custom' %}
           <h1 class="page-title">{{ page.name }}</h1>
           <div class="page-content {{ page.category }}-content">
