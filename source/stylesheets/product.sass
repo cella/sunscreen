@@ -84,12 +84,17 @@ h1.product-name
   display: none
 
 .product-option-selection
+  +all-transitions
   font-size: 15px
   height: 60px
   margin: 0 0 0 auto
   position: relative
   text-align: center
   width: 100%
+
+  &:hover, &:active
+    box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
+    +transform(scale(1.02, 1.02))
 
 .product-option-selection-title
   +all-transitions
@@ -131,7 +136,9 @@ h1.product-name
   background: $background-color
   list-style: none
   margin: 0
+  max-height: 450px
   opacity: 0
+  overflow: auto
   padding: 0
   position: absolute
   top: 100%

@@ -20,12 +20,14 @@
 
         {% if product.has_default_option %}
           {{ product.option | hidden_option_input }}
-          <button class="button add-to-cart-button" type="submit">Add to Cart</button>
+          <button class="button add-to-cart-button" type="submit" data-adding-text="Adding..." data-added-text="Added!">Add to Cart</button>
         {% else %}
           {{ product.options_in_stock | options_select }}
 
-          <div class="product-option-selection">
-            <div class="product-option-selection-title">Select Option <svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg></div>
+          <div class="product-option-selection" data-adding-text="Adding..." data-added-text="Added!">
+            <div class="product-option-selection-title">
+              Select Option <svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
+            </div>
             <ul class="product-option-list">
               {% for option in product.options_in_stock	 %}
                 <li class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
