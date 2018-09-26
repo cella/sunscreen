@@ -83,7 +83,7 @@
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
-      "default": "Categories",
+      "default": "Products",
       "description": "Displays featured products or categories on the Home page"
     },
     {
@@ -141,14 +141,14 @@
       "label": "Show search",
       "type": "boolean",
       "default": true,
-      "description": "Displays a search field in the Products dropdown"
+      "description": "Displays a search field in the Shop dropdown menu"
     },
     {
       "variable": "secondary_image_on_hover",
       "label": "Show secondary image on hover",
       "type": "boolean",
       "default": true,
-      "description": "Displays the secondary product image when hovered"
+      "description": "Displays the secondary product image when hovering over thumbnails"
     },
     {
       "variable": "twitter_url",
@@ -184,17 +184,17 @@
   "checkout": {
     "header_image": "{{ logo }}",
     "header_image_max_width": "754px",
-    "header_image_max_height": "120px",
+    "header_image_max_height": "200px",
     "title_font": "{{ primary_font }}",
     "title_font_weight": "normal",
-    "title_font_size": "22px",
+    "title_font_size": "28px",
     "title_color": "{{ text_color }}",
     "title_background_color": "{{ background_color }}",
     "title_vertical_padding": "27px",
-    "accent_background_color": "{{ background_color }}",
+    "accent_background_color": "{{ accent_color }}",
     "background_color": "{{ background_color }}",
     "body_font": "{{ primary_font }}",
-    "body_font_size": "14px",
+    "body_font_size": "15px",
     "step_border_color": "{{ background_color }}",
     "step_header_color": "{{ text_color }}",
     "step_border_width": "4px",
@@ -228,7 +228,7 @@
     "button_color": "{{ background_color }}",
     "button_border_width": "0px",
     "button_border_radius": "0px",
-    "button_font": "{{ secondary_font }}",
+    "button_font": "{{ primary_font }}",
     "button_hover_color": "{{ background_color }}",
     "button_background_color": "{{ text_color }}",
     "button_hover_background_color": "{{ text_color }}",
@@ -239,10 +239,10 @@
     "step_header_font_size": "18px",
     "summary_color": "{{ text_color }}",
     "summary_secondary_color": "{{ text_color }}",
-    "summary_item_border_color": "{{ background_color }}",
-    "summary_item_list_border_color": "{{ background_color }}",
+    "summary_item_border_color": "{{ text_color }}",
+    "summary_item_list_border_color": "{{ text_color }}",
     "summary_submit_background_color": "{{ background_color }}",
-    "summary_submit_border_color": "{{ background_color }}",
+    "summary_submit_border_color": "{{ text_color }}",
     "summary_submit_border_width": "4px"
   }
 }
