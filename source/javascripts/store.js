@@ -165,7 +165,7 @@ if ($('.flash-message-text').length) {
   }
 }
 
-var setCookie = function (name,value,days) {
+function setCookie(name,value,days) {
   var expires = "";
   if (days) {
     var date = new Date();
@@ -175,7 +175,7 @@ var setCookie = function (name,value,days) {
   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-var getCookie = function (name) {
+function getCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
   for(var i=0;i < ca.length;i++) {
@@ -186,7 +186,7 @@ var getCookie = function (name) {
   return null;
 }
 
-var eraseCookie = function (name) {
+function eraseCookie(name) {
   document.cookie = name+'=; Max-Age=-99999999;';
 }
 
@@ -202,7 +202,7 @@ document.addEventListener('input', function (event) {
 	autoExpand(event.target);
 }, false);
 
-var autoExpand = function (textarea) {
+function autoExpand(textarea) {
   if (textarea) {
     if (textarea.value) {
       textarea.style.height = 'inherit';
@@ -212,6 +212,6 @@ var autoExpand = function (textarea) {
   }
 };
 
-var getRandomIndex = function (elements) {
+function getRandomIndex(elements) {
   return Math.floor(Math.random() * elements.length);
 }
