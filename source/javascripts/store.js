@@ -207,7 +207,6 @@ var autoExpand = function (textarea) {
     if (textarea.value) {
       textarea.style.height = 'inherit';
       var height = textarea.scrollHeight;
-      console.log(height);
       textarea.style.height = height + 'px';
     }
   }
