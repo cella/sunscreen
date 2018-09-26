@@ -55,10 +55,15 @@
 
 .cart-item-details-price
   margin-left: auto
+  padding: 8px 0
 
 .cart-item-quantity-holder
   margin-left: auto
   width: 60px
+
+  @media screen and (max-width: $break-small)
+    margin-left: 115px
+    width: 40px
 
   input
     +all-transitions
