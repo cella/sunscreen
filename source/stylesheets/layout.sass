@@ -19,6 +19,10 @@ body
   height: 100%
   min-height: 100vh
 
+  &.no-scroll
+    overflow: hidden
+    position: relative
+
   &.maintenance-page
 
     .maintenance-content
@@ -137,7 +141,7 @@ h1
   left: 0
   right: 0
   width: 100%
-  z-index: 10
+  z-index: 30
 
   .error-background
     background-color: $background-color
@@ -159,6 +163,9 @@ h1
     position: relative
     text-align: center
     width: 100%
+
+    @media screen and (max-width: $break-small)
+      padding: 50px
 
   .error-list
     font-size: 15px
@@ -248,19 +255,23 @@ a.store-link
   display: block
   margin: 0 auto
   max-width: 100%
+  max-height: 400px
+
+  @media screen and (max-width: $break-small)
+    max-height: 200px
 
 .header-nav-container
   background: $background-color
   padding: 20px 0
   position: relative
-  z-index: 1
+  z-index: 10
 
   &.fixed
     left: 0
     position: fixed
     top: 0
     width: 100%
-    z-index: 2
+    z-index: 20
 
     @media screen and (max-width: $break-small)
       padding: 20px 10px
@@ -282,6 +293,37 @@ a.store-link
     display: block
     position: relative
 
+    &.overlay-open
+
+      @media screen and (max-width: $break-small)
+        ul
+          -webkit-overflow-scrolling: touch
+          +transform(none)
+          +transition(none)
+          height: 100vh
+          left: 0
+          max-height: 100vh
+          opacity: 1
+          padding: 70px 50px
+          position: fixed
+          top: 0
+          width: 100vw
+          z-index: 30
+          visibility: visible
+
+        .close-overlay
+          background: none
+          color: $text-color
+          display: block
+          height: 24px
+          line-height: normal
+          padding: 5px
+          position: fixed
+          right: 30px
+          top: 30px
+          width: 24px
+          z-index: 40
+
     > a, > .dropdown-title
       display: block
       padding: 2px 25px
@@ -289,6 +331,12 @@ a.store-link
 
       @media screen and (max-width: $break-small)
         padding: 2px 10px
+
+  .close-overlay
+    display: none
+
+    svg
+      fill: $text-color
 
   ul
     +transform-origin(100% 0%)
@@ -308,11 +356,7 @@ a.store-link
     top: 100%
     width: 300px
     visibility: hidden
-    z-index: 2
-
-    @media screen and (max-width: $break-small)
-      +transform(none)
-      left: 0
+    z-index: 20
 
     > li
       border-bottom: 1px solid $accent-color
@@ -333,15 +377,16 @@ a.store-link
       &:last-child
         border-bottom: 0px
 
-.header-nav li:hover > ul, .header-nav li:focus-within > ul, .header-nav li ul:hover
-  +transform(scale(1) translateY(0) translateX(-50%))
-  visibility: visible
-  opacity: 1
-  transition-delay: 0s
+@media screen and (min-width: $break-small)
+  .header-nav li:hover > ul, .header-nav li:focus-within > ul, .header-nav li ul:hover
+    +transform(scale(1) translateY(0) translateX(-50%))
+    visibility: visible
+    opacity: 1
+    transition-delay: 0s
 
-  @media screen and (max-width: $break-small)
-    +transform(none)
-    left: 0
+    @media screen and (max-width: $break-small)
+      +transform(none)
+      left: 0
 
 ul li ul li
   clear: both
@@ -424,7 +469,7 @@ footer
   position: absolute
   top: 0
   width: 100%
-  z-index: 97
+  z-index: 20
 
   .flash-message-text
     text-align: center

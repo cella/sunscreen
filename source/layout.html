@@ -3,7 +3,7 @@
   <head>
     <title>{{ page.name }} | {{ store.name }}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
     {{ head_content }}
@@ -23,7 +23,7 @@
         <div class="header-nav-container">
           <ul class="header-nav">
             <li>
-              <a href="#" onclick="return false;" title="Shop">Shop</a>
+              <a class="open-overlay" href="#" onclick="return false;" title="Shop">Shop</a>
 
               {% if categories.active != blank or artists.active != blank %}
                 <ul class="header-nav-dropdown">
@@ -48,12 +48,13 @@
                     {% endfor %}
                   {% endif %}
                 </ul>
+                <button class="close-overlay"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill="#325DA8" fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></button>
               {% endif %}
             </li>
             {% if pages.all != blank or store.website != blank %}
               <li>
                 {% if pages.all != blank or store.website != blank %}
-                  <a href="#" onclick="return false;" title="Info">Info</a>
+                  <a class="open-overlay" href="#" onclick="return false;" title="Info">Info</a>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
@@ -63,6 +64,7 @@
                     {% endif %}
                     <li><a href="/contact" title="Contact">Contact</a></li>
                   </ul>
+                  <button class="close-overlay"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill="#325DA8" fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></button>
                 {% endif %}
               </li>
             {% else %}
@@ -85,7 +87,7 @@
                 </li>
               {% else %}
                 <li>
-                  <a href="#" onclick="return false;" title="Follow">Follow</a>
+                  <a class="open-overlay" href="#" onclick="return false;" title="Follow">Follow</a>
                   <ul class="header-nav-dropdown">
                     {% if theme.instagram_url != blank %}
                       <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
@@ -107,6 +109,7 @@
                       <li><a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
                     {% endif %}
                   </ul>
+                  <button class="close-overlay"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill="#325DA8" fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></button>
                 </li>
               {% endif %}
             {% endif %}
@@ -161,7 +164,7 @@
                         <figure class="product-list-image-container">
                           <img alt="Image of {{ category_product.name | escape }}" class="similar-product-list-image product-list-image {% if product.image.height > product.image.width %}image-tall{% elsif product.image.height < product.image.width %}image-wide{% else %}image-square{% endif %}" data-src="{{ category_product.image | product_image_url | constrain: 1000, 1000 }}">
                           {% if category_product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                            <img class="similar-product-list-image product-list-image {% if product.image.height > product.image.width %}image-tall{% elsif product.image.height < product.image.width %}image-wide{% else %}image-square{% endif %} secondary-image" data-src="{{ category_product.images[1] | product_image_url | constrain: 1000, 1000 }}">
+                            <img alt="Image of {{ category_product.name | escape }}" class="similar-product-list-image product-list-image {% if product.image.height > product.image.width %}image-tall{% elsif product.image.height < product.image.width %}image-wide{% else %}image-square{% endif %} secondary-image" data-src="{{ category_product.images[1] | product_image_url | constrain: 1000, 1000 }}">
                           {% endif %}
                         </figure>
                       </div>
@@ -198,9 +201,18 @@
         <div class="error-container">
           <div class="error-list">
             {% for error in errors %}
-              <div class="error-liste-item">{{ error }}</div>
+              <div class="error-list-item">{{ error }}</div>
             {% endfor %}
           </div>
+          <div class="close-errors"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></div>
+        </div>
+      </div>
+
+    {% else %}
+      <div class="error-modal" style="display: none;">
+        <div class="error-background"></div>
+        <div class="error-container">
+          <div class="error-list"></div>
           <div class="close-errors"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M10.11 1.596l-8.484 8.485-.707-.707L9.404.89z"/><path d="M1.626.89l8.485 8.484-.707.707L.919 1.596z"/></g></svg></div>
         </div>
       </div>
