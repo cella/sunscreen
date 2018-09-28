@@ -69,8 +69,11 @@ $(window).on("scroll", function(e) {
 });
 
 $('.open-overlay').click(function(e) {
-  $(this).parent().addClass('overlay-open');
-  $('body').addClass('no-scroll');
+  var screen_width = $(window).width();
+  if (screen_width <= 767) {
+    $(this).parent().addClass('overlay-open');
+    $('body').addClass('no-scroll');
+  }
 });
 
 $('.close-overlay').click(function(e) {
