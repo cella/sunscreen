@@ -96,7 +96,7 @@ h1.product-name
     box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
     +transform(scale(1.02, 1.02))
 
-.product-option-selection-title
+.product-option-selection-button
   +all-transitions
   +flexbox
   +justify-content(center)
@@ -106,13 +106,14 @@ h1.product-name
   color: $background-color
   cursor: pointer
   height: 60px
+  max-width: 100%
   padding: 0 50px
   white-space: nowrap
 
   &.opened .down-arrow
     +transform(rotate(180deg))
 
-  &:hover
+  &:active, &:focus, &:hover
     background: $text-color
     color: $background-color
 
@@ -121,8 +122,6 @@ h1.product-name
 
   .dropdown-title
     display: none
-
-  .dropdown-select-title
 
   .down-arrow
     fill: $background-color
@@ -159,9 +158,10 @@ h1.product-name
       line-height: 20px
       padding: 10px 30px
 
-    &:hover, &:active
+    &:active, &:focus, &:hover
       background: $text-color
       color: $background-color
+      outline: none
 
     &:last-child
       border-bottom: 0px

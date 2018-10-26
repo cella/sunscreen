@@ -1,6 +1,6 @@
 {% if theme.welcome_image or theme.welcome_text != blank %}
   <div class="home-welcome">
-    {% if theme.welcome_image %}<img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">{% endif %}
+    {% if theme.welcome_image %}<img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}" alt="Welcome to {{ store.name | escape }}">{% endif %}
     {% if theme.welcome_text != blank %}
       <div class="welcome-message{% if theme.welcome_image %} with-image{% endif %}">
         {% if theme.welcome_text != blank %}<div class="welcome-message-text">{{ theme.welcome_text }}</div>{% endif %}
@@ -63,6 +63,8 @@
           {% endfor %}
         </div>
         <a class="button centered-button" href="/products" title="View All Products">View All</a>
+      {% else %}
+        <h1 class="page-title products-page-title">No products found</h1>
       {% endif %}
     {% endget %}
   {% endif %}
