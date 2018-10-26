@@ -21,8 +21,8 @@ $('.product-form').submit(function(e) {
   }
   else {
     var addMethod = optionDropdown;
-    var updateElement = $('.product-option-selection-title');
-    var addText = $('.product-option-selection-title').html();
+    var updateElement = $('.product-option-selection-button');
+    var addText = updateElement.html();
   }
   var addedText = addMethod.data('added-text')
   , addingText = addMethod.data('adding-text')
@@ -32,8 +32,9 @@ $('.product-form').submit(function(e) {
       addMethod.blur();
       Cart.addItem(itemID, quantity, function(cart) {
         setTimeout(function() {
-          $('.product-option-selection-title').toggleClass('opened');
-          $('.product-option-list').toggleClass('visible');
+          if ($('.product-option-selection-button').length) {
+            $('.product-option-list').toggleClass('visible');
+          }
           updateElement.html(addingText);
           setTimeout(function() {
             updateElement.html(addedText);
@@ -50,10 +51,29 @@ $('.product-form').submit(function(e) {
   }
 });
 
-$('.product-option-selection-title').click(function(e) {
+$('.product-option-selection-button').click(function(e) {
   $(this).toggleClass('opened');
   $('.product-option-list').toggleClass('visible');
 });
+
+$('.product-option-list li').not('.disabled').keypress(function (e) {
+  if (e.keyCode == 13) {
+    addItemToCart($(this));
+  }
+});
+
+$('.product-option-list li').not('.disabled').click(function() {
+  addItemToCart($(this));
+});
+
+
+function addItemToCart(selectedOption) {
+  var option_id = selectedOption.data("option-id");
+  if (option_id > 0) {
+    $('#option').val(option_id);
+    $('.product-form').submit();
+  }
+}
 
 var nav_position = $('.header-nav-container').offset().top;
 var header_nav_height = $('.header-nav-container').outerHeight();
@@ -86,11 +106,11 @@ $('.close-errors').click(function(e) {
   $('.error-modal').hide();
 });
 
-$('.product-option-list li').not('.disabled').click(function() {
-  var option_id = $(this).data("option-id");
-  if (option_id > 0) {
-    $('#option').val(option_id);
-    $('.product-form').submit();
+$(document).on('keyup',function(e) {
+  if (e.keyCode == 27) {
+    if ($('.error-modal').is(":visible")) {
+      $('.error-modal').hide();
+    }
   }
 });
 
