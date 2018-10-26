@@ -94,7 +94,7 @@ button, a.button
     display: block
     margin: 60px auto
 
-  &:hover, &:active
+  &:active, &:focus, &:hover
     box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
     +transform(scale(1.02, 1.02))
 
@@ -366,9 +366,10 @@ a.store-link
         line-height: 20px
         padding: 0 30px
 
-        &:hover, &:active
+        &:active, &:focus, &:hover
           background: $text-color
           color: $background-color
+          outline: none
 
       &:last-child
         border-bottom: 0px
