@@ -112,7 +112,7 @@ h1.product-name
   &.opened .down-arrow
     +transform(rotate(180deg))
 
-  &:hover
+  &:active, &:focus, &:hover
     background: $text-color
     color: $background-color
 
@@ -159,9 +159,10 @@ h1.product-name
       line-height: 20px
       padding: 10px 30px
 
-    &:hover, &:active
+    &:active, &:focus, &:hover
       background: $text-color
       color: $background-color
+      outline: none
 
     &:last-child
       border-bottom: 0px
