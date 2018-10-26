@@ -63,6 +63,8 @@
           {% endfor %}
         </div>
         <a class="button centered-button" href="/products" title="View All Products">View All</a>
+      {% else %}
+        <h1 class="page-title products-page-title">No products found</h1>
       {% endif %}
     {% endget %}
   {% endif %}
