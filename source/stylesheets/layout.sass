@@ -72,7 +72,7 @@ a, a:visited
   color: $text-color
   text-decoration: none
 
-button, a.button
+.button, a.button
   +all-transitions
   +appearance(none)
   background-color: $text-color
@@ -309,6 +309,7 @@ a.store-link
 
         .close-overlay
           background: none
+          border: none
           color: $text-color
           display: block
           height: 24px
@@ -320,13 +321,23 @@ a.store-link
           width: 24px
           z-index: 40
 
-    > a, > .dropdown-title
+    > a, > .dropdown-title, .open-overlay
+      cursor: pointer
       display: block
       padding: 2px 25px
       position: relative
 
       @media screen and (max-width: $break-small)
         padding: 2px 10px
+
+    .open-overlay
+      +appearance(none)
+      border: none
+      background: none
+      color: $text-color
+
+    .close-overlay
+      height: auto !important
 
   .close-overlay
     display: none
@@ -416,6 +427,8 @@ ul li ul li
 
   button.search-button
     background: none
+    border: none
+    margin-right: 5px
     padding: 2px
     width: auto
 

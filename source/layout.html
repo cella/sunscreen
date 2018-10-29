@@ -30,9 +30,13 @@
         <nav class="header-nav-container">
           <ul class="header-nav">
             <li>
-              <a class="open-overlay" href="#" onclick="return false;" title="Shop">Shop</a>
+              {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
+                <button class="open-overlay" title="Shop" tabindex="0" type="button">Shop</button>
+              {% else %}
+                <a href="/products" title="Shop">Shop</a>
+              {% endif %}
 
-              {% if categories.active != blank or artists.active != blank %}
+              {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
                 <ul class="header-nav-dropdown">
                   {% if theme.show_search %}
                     <li class="dropdown-search">
@@ -61,7 +65,7 @@
             {% if pages.all != blank or store.website != blank %}
               <li>
                 {% if pages.all != blank or store.website != blank %}
-                  <a class="open-overlay" href="#" onclick="return false;" title="Info">Info</a>
+                  <button class="open-overlay" title="Info" tabindex="0" type="button">Info</button>
                   <ul class="header-nav-dropdown">
                     {% for page in pages.all %}
                       <li>{{ page | link_to }}</li>
@@ -94,7 +98,7 @@
                 </li>
               {% else %}
                 <li>
-                  <a class="open-overlay" href="#" onclick="return false;" title="Follow">Follow</a>
+                  <button class="open-overlay" title="Follow" tabindex="0" type="button">Follow</button>
                   <ul class="header-nav-dropdown">
                     {% if theme.instagram_url != blank %}
                       <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
