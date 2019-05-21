@@ -24,19 +24,39 @@
         {% else %}
           {{ product.options_in_stock | options_select }}
 
-          <div class="product-option-selection" data-adding-text="Adding..." data-added-text="Added!">
-            <button class="product-option-selection-button" type="button" tabindex="0">
-              Select Option <svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
-            </button>
-            <ul class="product-option-list">
-              {% for option in product.options_in_stock	 %}
-                <li role="button" tabindex="0" class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
-                  <span class="product-option"><span class="option-name">{{ option.name }}</span>{% if option.price != product.default_price %} - <span class="option-price">{{ option.price | money: theme.money_format }}</span>{% endif %} {% if option.sold_out %}<span class="option-status">(Sold out)</span>{% endif %}</span>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
+          {% if product.has_variants %}
+            {% for option_group in product.option_groups %}
+              <div class="product-option-selection">
+                <button class="product-option-selection-button" type="button" tabindex="0" data-option-title="Select {{ option_group.name}}">
+                  <span>Select {{ option_group.name}}</span><svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
+                </button>
+                <ul class="product-option-list">
+                  {% for value in option_group.values	 %}
+                    <li role="button" tabindex="0" class="dropdown-link" data-option-id="{{ option.id }}">
+                      <span class="product-option"><span class="option-name">{{ value }}</span></span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          {% else %}
+
+            <div class="product-option-selection">
+              <button class="product-option-selection-button" type="button" tabindex="0">
+                <span>Select Option</span><svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
+              </button>
+              <ul class="product-option-list">
+                {% for option in product.options_in_stock	 %}
+                  <li role="button" tabindex="0" class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
+                    <span class="product-option"><span class="option-name">{{ option.name }}</span>{% if option.price != product.default_price %} - <span class="option-price">{{ option.price | money: theme.money_format }}</span>{% endif %} {% if option.sold_out %}<span class="option-status">(Sold out)</span>{% endif %}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         {% endif %}
+
+        <button class="add-to-cart-button" name="submit" type="submit" title="Add to Cart" disabled>Add to Cart</button>
       </form>
     {% endif %}
     <div class="product-page-titles">

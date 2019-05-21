@@ -83,7 +83,7 @@ h1.product-name
 .product-quantity, #option
   display: none
 
-.product-option-selection
+.product-option-selection,
   +all-transitions
   font-size: 15px
   height: 60px
@@ -97,7 +97,11 @@ h1.product-name
     box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
     +transform(scale(1.02, 1.02))
 
-.product-option-selection-button
+  &.selected
+    z-index: 2
+
+.product-option-selection-button,
+.add-to-cart-button
   +all-transitions
   +flexbox
   +justify-content(center)
@@ -197,3 +201,64 @@ h1.product-name
   font-size: 25px
   margin-bottom: 40px
   text-align: center
+
+.product-form
+  height: 1px
+
+@media screen and (max-width: 767px)
+  .product-form
+    height: auto
+
+
+.option-label
+  display: block
+  font-size: 16px
+  margin-bottom: 8px
+
+
+.product-option-selection
+  margin-bottom: 24px
+
+.product-option-selection:hover,
+.product-option-selection:active
+  z-index: 2
+
+.product-option-selection-button.dropdown
+  color: #325DA8
+  border: 1px solid #325DA8
+  background: #ffffff
+  z-index: 0
+  position: relative
+
+.product-option-selection-button.dropdown:hover
+  color: #ffffff
+  background: #325DA8
+
+.product-option-selection-button.dropdown svg,
+.product-option-selection-button.dropdown:focus svg
+  fill: #325DA8
+
+.product-option-selection-button.dropdown.opened
+  color: #ffffff
+  background: #325DA8
+
+.product-option-selection-button.dropdown:hover svg,
+.product-option-selection-button.dropdown:hover:focus svg,
+.product-option-selection-button.dropdown.opened svg
+  fill: #ffffff
+
+.add-to-cart-button
+  z-index: 30
+  
+.add-to-cart-button:disabled
+  opacity: 0.25
+  cursor: not-allowed
+
+.product-option-list.visible
+  z-index: 69
+
+.product-description
+  font-size: 18px
+  -webkit-flex-basis: calc(100% - 375px)
+  -ms-flex-preferred-size: calc(100% - 375px)
+  flex-basis: calc(100% - 375px)
